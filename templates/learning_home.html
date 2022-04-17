@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ukulele Chords Learning</title>
+    <!-- jquery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+
+    <!-- Self-written js -->
+    <script src="../static/learning_home.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="page-title">Fingering Learning</div>
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="/learn/basic">Basic</a>
+            <a class="navbar-brand" href="/learn">Learn</a>
+            <a class="navbar-brand" href="/learn/quiz">Quiz</a>
+        </nav>
+
+    </div>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
