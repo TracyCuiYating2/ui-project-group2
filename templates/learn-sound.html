@@ -3,26 +3,29 @@
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'learn-sound.js') }}"></script>
 
+<script>
+    let data = {{data|tojson}}
+</script>
+
 <div class="container" id="basic-content">
     <div class="row">
         <div class="col-md-4">
-            <img src="https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg" alt="C" width="50%">
+            <img src="{{data.chordIMG}}" alt="C" width="50%">
         </div>
         <div class="col-md-8">
             <audio controls>
-                <source src="../rescourse/C.mp3" type="audio/mpeg" preload="auto">
-                <embed height="50" width="100" src="../rescourse/C.mp3">
-                <object height="50" width="100" data="horse.mp3"></object>
+                <source src="{{data.chordAudio}}" type="audio/mpeg" preload="auto">
+                <embed height="50" width="100" src="{{data.chordAudio}}">
                 Your browser does not support this type of audio!
               </audio>
         </div>
     </div>
     <div>
-        The following audio plays C chord. Listen several times and remember it!
+        {{data.description2}}
     </div>
     <div class="btn-align">
-        <button class="btn btn-primary" id="prev">Previous</button>
-        <button class="btn btn-primary" id="nxt">Quiz</button>
+        <button class="btn btn-primary prev">Previous</button>
+        <button class="btn btn-primary next">Next</button>
     </div>
 </div>
 
