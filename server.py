@@ -6,34 +6,40 @@ app = Flask(__name__)
 
 
 
-learnData ={
-    "0": {
-        "id": 0,
-        "title": "G Chord",
-        "img": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukuchords/ukuchords_howtoreadchordcharts.png",
-        "altText": "There's a single ukulele with some diagrams for where to place the fingers.",
-        "prev": "basic",
-        "next": "1",
-        "audio": "/static/resources/G.mp3",
-    },
+learnData = {
     "1": {
         "id": 1,
-        "title": "F Chord",
-        "img": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukuchords/ukuchords_howtoreadchordcharts.png",
-        "altText": "There's a single ukulele with some diagrams for where to place the fingers.",
-        "prev": "0",
+        "chord": "G",
+        "chordIMG": "https://b7d3d5f9.rocketcdn.me/chords/standard/G.svg",
+        "chordAudio": "/static/resources/G.mp3",
+        "description": "Here is the G chord, your fingers should pressing the yellow dots on the strings.",
+        "description2": "Here is the sound for the G chord!!!",
+        "prev": "basic",
         "next": "2",
-        "audio": "/static/resources/F.mp3",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
     },
     "2": {
         "id": 2,
-        "title": "C Chord",
-        "img": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukuchords/ukuchords_howtoreadchordcharts.png",
-        "altText": "There's a single ukulele with some diagrams for where to place the fingers.",
+        "chord": "F",
+        "chordIMG": "https://b7d3d5f9.rocketcdn.me/chords/standard/F.svg",
+        "chordAudio": "/static/resources/F.mp3",
+        "description": "Here is the F chord, your fingers should pressing the yellow dots on the strings.",
+        "description2": "Here is the sound for the F chord!!!",
         "prev": "1",
-        "next": "quiz",
-        "audio": "/static/resources/C.mp3",
+        "next": "3",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
     },
+    "3": {
+        "id": 3,
+        "chord": "C",
+        "chordIMG": "https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg",
+        "chordAudio": "/static/resources/G.mp3",
+        "description": "Here is the C chord, your fingers should pressing the yellow dots on the strings.",
+        "description2": "Here is the sound for the C chord!!!",
+        "prev": "2",
+        "next": "quiz",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+   }
 }
 
 
@@ -75,15 +81,6 @@ quiz_result = []
 def home():
     return render_template('home.html')
 
-
-@app.route('/learn/<id>')
-def learn(id=None):
-    global learnData
-    data = learnData[id]
-
-    return render_template('learn.html', data=data)
-
-
 @app.route('/learn/basic')
 def basic():
     return render_template('basic.html')
@@ -92,13 +89,20 @@ def basic():
 def basic_contd():
     return render_template('basic-contd.html')
 
-@app.route('/learn/1')
-def learn_fingering():
-    return render_template('learn-fingering.html')
+@app.route('/learn/<id>')
+def learn_fingering(id=None):
+    global learnData
+    data = learnData[id]
 
-@app.route('/learn/2')
-def learn_sound():
-    return render_template('learn-sound.html')
+    return render_template('learn-fingering.html', data=data)
+
+
+@app.route('/learn/<id>/sound')
+def learn_sound(id=None):
+    global learnData
+    data = learnData[id]
+
+    return render_template('learn-sound.html', data=data)
 
 
 @app.route('/quiz/<id>')
