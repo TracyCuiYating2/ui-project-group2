@@ -1,5 +1,9 @@
 .page-title{
     text-align: center;
-    font-size: larger;
+    font-size: x-large;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.btn-align{
+    align-self: flex-end;
 }
