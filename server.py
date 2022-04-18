@@ -26,7 +26,8 @@ def home():
 
 @app.route('/learn')
 def learn():
-    return render_template('learn.html')
+    #learnDataID = learnData[id]
+    return render_template('learn.html', learnData = learnData)
 
 
 @app.route('/learn/basic')

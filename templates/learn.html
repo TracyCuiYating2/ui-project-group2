@@ -2,9 +2,16 @@
 
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'basic.js') }}"></script>
+<script>
+
+    let learnData = {{learnData|tojson}}
+    console.log("data: " + learnData)
+</script>
 
 <div class="container" id="basic-content">
     this is the beginning of the learning page!
+
+    {{learnData.img}}
 </div>
 
 {% endblock %}
