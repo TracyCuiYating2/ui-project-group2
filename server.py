@@ -14,6 +14,7 @@ learnData ={
         "altText": "There's a single ukulele with some diagrams for where to place the fingers.",
         "prev": "basic",
         "next": "1",
+        "audio": "/static/resources/G.mp3",
     },
     "1": {
         "id": 1,
@@ -22,6 +23,7 @@ learnData ={
         "altText": "There's a single ukulele with some diagrams for where to place the fingers.",
         "prev": "0",
         "next": "2",
+        "audio": "/static/resources/F.mp3",
     },
     "2": {
         "id": 2,
@@ -30,6 +32,7 @@ learnData ={
         "altText": "There's a single ukulele with some diagrams for where to place the fingers.",
         "prev": "1",
         "next": "quiz",
+        "audio": "/static/resources/C.mp3",
     },
 }
 
