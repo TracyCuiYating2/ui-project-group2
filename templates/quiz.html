@@ -1,0 +1,33 @@
+{% extends "learning_home.html" %}
+
+{% block content %}
+
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
+
+<script>
+    let data = {{ data| tojson}}; 
+</script>
+
+<div class="container" id="basic-content">
+    <div class="row">
+        <div class="col-md-12"><h3>Quizzes {{data.id}}/3</h3></div> 
+    </div>
+    <div class="row">
+        <div class="col-md-12"><h4>From the following 3 audio, which one is {{data.target}} chord?</h4></div> 
+    </div>
+    <div class="row" id="quiz_question">
+        <div class="col-md-4" id="quiz-image">
+            <!-- <img src="https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg" alt="C" width="50%"> -->
+        </div>
+        <div class="col-md-8" id ='quiz-content'>
+            <!-- <img src="https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png" alt="ukulele" width="95%"> -->
+        </div>
+    </div>
+    <div class="btn-align">
+        <button class="btn btn-primary" id="prev">Previous</button>
+        <button class="btn btn-primary" id="nxt">Next</button>
+    </div>
+</div>
+
+{% endblock %}
