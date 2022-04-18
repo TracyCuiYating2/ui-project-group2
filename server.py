@@ -51,7 +51,7 @@ quiz_data = [
         "id": "1", 
         "type": "0", 
         "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg"], 
-        "audio": ["../rescourses/C.mp3","../rescourses/F.mp3","../rescourses/G.mp3"],
+        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
         "target": "C",
         "next":"2",
         "previous":""
@@ -60,7 +60,7 @@ quiz_data = [
         "id": "2", 
         "type": "0", 
         "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/G.svg"], 
-        "audio": ["../rescourses/C.mp3","/rescourses/F.mp3","/rescourses/G.mp3"],
+        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
         "target": "G",
         "next":"3",
         "previous":"1"
@@ -69,7 +69,7 @@ quiz_data = [
         "id": "3", 
         "type": "0", 
         "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/F.svg"], 
-        "audio": ["../rescourses/C.mp3","../rescourses/F.mp3","../rescourses/G.mp3"],
+        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
         "target": "F",
         "next":"4",
         "previous":"2"

@@ -7,6 +7,11 @@ $(document).ready(function(){
     })
 
     $(".next").click(function(){
-        window.location.href = '/learn/' + data.next
+        if (data.id ===3){
+            console.log("correct");
+            window.location.href = '/quiz/1';
+        }else{
+            window.location.href = '/learn/' + data.next
+        }
     })
 })
