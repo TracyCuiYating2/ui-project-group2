@@ -34,6 +34,19 @@ def learn():
 def basic():
     return render_template('basic.html')
 
+
+@app.route('/learn/basic-contd')
+def basic_contd():
+    return render_template('basic-contd.html')
+
+@app.route('/learn/1')
+def learn_fingering():
+    return render_template('learn-fingering.html')
+
+@app.route('/learn/2')
+def learn_sound():
+    return render_template('learn-sound.html')
+
 @app.route('/learn/quiz')
 def quiz():
     return render_template('quiz.html')
