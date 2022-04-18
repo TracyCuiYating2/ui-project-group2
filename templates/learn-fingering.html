@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<script type="text/javascript" src="{{ url_for('static', filename = 'learn-sound.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn-fingering.js') }}"></script>
 
 <script>
     let data = {{data|tojson}}
@@ -14,15 +14,11 @@
             <img src="{{data.chordIMG}}" alt="C" width="50%">
         </div>
         <div class="col-md-8">
-            <audio controls>
-                <source src="{{data.chordAudio}}" type="audio/mpeg" preload="auto">
-                <embed height="50" width="100" src="{{data.chordAudio}}">
-                Your browser does not support this type of audio!
-              </audio>
+            <img src="{{data.ukulele}}" alt="ukulele" width="95%">
         </div>
     </div>
     <div>
-        {{data.description2}}
+        {{data.description}}
     </div>
     <div class="btn-align">
         <button class="btn btn-primary prev">Previous</button>
