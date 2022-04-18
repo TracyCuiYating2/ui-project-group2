@@ -22,8 +22,6 @@ learnData = [
         "chord": "G",
         "chordIMG": "https://b7d3d5f9.rocketcdn.me/chords/standard/G.svg",
         "chordAudio": "../rescourse/C.mp3"
-    }
-]
 
 
 
@@ -33,9 +31,17 @@ learnData = [
 def home():
     return render_template('home.html')
 
+
+@app.route('/learn')
+def learn():
+    #learnDataID = learnData[id]
+    return render_template('learn.html', learnData = learnData)
+
+
 @app.route('/learn/basic')
 def basic():
     return render_template('basic.html')
+
 
 @app.route('/learn/basic-contd')
 def basic_contd():
@@ -48,6 +54,10 @@ def learn_fingering():
 @app.route('/learn/2')
 def learn_sound():
     return render_template('learn-sound.html')
+
+@app.route('/learn/quiz')
+def quiz():
+    return render_template('quiz.html')
 
 if __name__ == '__main__':
    app.run(debug = True)
