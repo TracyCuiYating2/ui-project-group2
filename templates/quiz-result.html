@@ -1,0 +1,18 @@
+{% extends "learning_home.html" %}
+
+{% block content %}
+
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz-result.js') }}"></script>
+
+<script>
+    let data = {{ data| tojson}}; 
+</script>
+
+<div>
+<h3>Good job! You have completed all the quizzes. </h3>
+<h4>Please review the following:</h4>
+<h4> C chord</h4>
+</div>
+
+{% endblock %}
