@@ -2,26 +2,16 @@
 
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'basic.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
 <script>
 
-    let data = {{data|tojson}}
-    console.log("data: " + data)
+    let learnData = {{learnData|tojson}}
+    console.log("data: " + learnData)
 </script>
 
 <div class="container" id="basic-content">
-    <h1>{{data.title}}</h1>
+    this is the beginning of the learning page!
 
-    <img src="{{data.img}}" alt="{{data.altText}}">
-
-    <audio controls>
-        <source src="{{data.audio}}" type="audio/mpeg">
-    </audio>
-    
-    <div>
-        <button class="btn btn-primary prev">Previous</button>
-        <button class="btn btn-primary next">Next</button>
-    </div>
+    {{learnData.img}}
 </div>
 
 {% endblock %}

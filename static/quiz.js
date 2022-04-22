@@ -46,7 +46,11 @@ $(document).ready(function(){
         }
     })
     $("#prev").click(function(){
-        window.location.href = '/quiz/' + data["previous"]
+        if (data["id"] === "1"){
+            window.location.href = '/learn/3';
+        }else{
+            window.location.href = '/quiz/' + data["previous"]
+        }
     })            
 
 })
