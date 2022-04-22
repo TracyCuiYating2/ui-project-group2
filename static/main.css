@@ -6,7 +6,9 @@
 
 .btn-align{
     align-self: flex-end;
+    margin: 0 auto;
 }
+
 
 .circle{
     border-radius: 50%;
