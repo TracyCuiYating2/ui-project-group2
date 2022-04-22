@@ -1,0 +1,50 @@
+{% extends "learning_home.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz-finger.js') }}"></script>
+<link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+
+
+<script>
+    let data = {{ data| tojson}}; 
+</script>
+
+<div class="container" id="basic-content">
+    <div class="row">
+        <div class="col-md-12"><h3>Quizzes {{data.id}}/3</h3></div> 
+    </div>
+    <div class="row">
+        <div class="col-md-12"><h4>Place the correct fingering buttons for {{data.target}}</h4></div> 
+    </div>
+    <div id="quiz_question"> 
+        <div id ="draggable_fingerings">
+                <div class="row"> 
+                    <div class="col-md-2"> <br></div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="circle">1</div>
+                            <div class="circle">2</div>
+                            <div class="circle">3</div>
+                            <div class="circle">4</div>
+                        </div>
+                    </div>
+
+                </div>
+        
+        </div>
+        
+    </div>
+    
+    <div class = "bg-image" style = "background-image: url('{{data.ukulele}}'); height: 100vh">
+        
+    </div>
+
+    <div class="btn-align"> <!-- I want to move this to center-->
+        <button class="btn btn-primary" id="prev">Previous</button>
+        <button class="btn btn-primary" id="nxt">Next</button>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -39,17 +39,17 @@ $(document).ready(function(){
     $("#nxt").click(function(){
         if (data["id"] === "3"){
             console.log("here");
-            window.location.href = '/quiz/1/fingering';
+            window.location.href = '/quiz/result';
         }else{
             console.log("wrong");
-            window.location.href = '/quiz/' + data["next"]
+            window.location.href = '/quiz/' + data["next"] + '/fingering'
         }
     })
     $("#prev").click(function(){
         if (data["id"] === "1"){
-            window.location.href = '/learn/3';
+            window.location.href = '/quiz/3';
         }else{
-            window.location.href = '/quiz/' + data["previous"]
+            window.location.href = '/quiz/' + data["previous"] +'/fingering'
         }
     })            
 
