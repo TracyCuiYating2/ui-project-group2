@@ -1,3 +1,5 @@
+
+
 function displayPage(data){
     let pic = $("<img class='quiz-image'>");
     $(pic).attr("src", data["image"][0]);
@@ -9,8 +11,19 @@ function displayPage(data){
         // // <button onclick="playSound()">Play</button>
         // let audio = new Audio(datum);
         let item = $("<div>");
-        let button = $("<button>");
+        let button = $("<button class='btn btn-primary option' type='button'>");
         button.text(i);
+
+        $(".option").click(function(){
+            let user = $(this).html()
+            console.log(user)
+
+            let response = {
+                "user": user
+            }
+
+            save_user_response(response)
+        })
 
         let audio = $("<audio controls>");
         // let playSound = () => new Audio(datum).play();
@@ -26,8 +39,30 @@ function displayPage(data){
         $(item).append(audio);
 
         $("#quiz-content").append(item);
-      });
-    }
+    });
+}
+
+function save_user_response(selection) {
+    $.ajax({
+        type: "POST",
+        url: "save_user_response",                
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify(selection),
+        success: function(result){
+            data = result["quiz_results"]
+            
+            console.log(data)
+        },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
+
 $(document).ready(function(){
     //when the page loads, display all the names
     displayPage(data)  
