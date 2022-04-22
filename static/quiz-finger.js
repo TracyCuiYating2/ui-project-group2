@@ -39,18 +39,81 @@ $(document).ready(function(){
     $("#nxt").click(function(){
         if (data["id"] === "3"){
             console.log("here");
-            window.location.href = '/quiz/result';
+            window.location.href = '/quiz/result'; //quiz result
         }else{
             console.log("wrong");
-            window.location.href = '/quiz/' + data["next"] + '/fingering'
+            window.location.href = '/quiz/' + data["next"] + '/fingering' //added for fingering page
         }
     })
     $("#prev").click(function(){
         if (data["id"] === "1"){
-            window.location.href = '/quiz/3';
+            window.location.href = '/quiz/3'; //return to multiple choice
         }else{
-            window.location.href = '/quiz/' + data["previous"] +'/fingering'
+            window.location.href = '/quiz/' + data["previous"] +'/fingering' //fingering page
         }
     })            
 
+    //The buttons for the fingering are made draggable
+
+    $("#finger1").draggable({
+        containment: 'document',
+        cursor: 'move',
+        revert: 'invalid',
+        stop:function(){
+        $(this).draggable('option','revert','invalid')
+        }
+    })
+
+    
+    $("#finger2").draggable({
+        containment: 'document',
+        cursor: 'move',
+        revert: 'invalid',
+        stop:function(){
+        $(this).draggable('option','revert','invalid')
+        }
+    })
+
+    $("#finger3").draggable({
+        containment: 'document',
+        cursor: 'move',
+        revert: 'invalid',
+        stop:function(){
+        $(this).draggable('option','revert','invalid')
+        }
+    })
+
+    $("#finger4").draggable({
+        containment: 'document',
+        cursor: 'move',
+        revert: 'invalid',
+        stop:function(){
+        $(this).draggable('option','revert','invalid')
+        }
+    })
+
+    // Hover -- hovering over the buttons will change the color 
+    $("#finger1").hover(function(){
+        $(this).css("background-color", "pink");
+        }, function(){
+        $(this).css("background-color", "yellow");
+      });
+
+      $("#finger2").hover(function(){
+        $(this).css("background-color", "pink");
+        }, function(){
+        $(this).css("background-color", "yellow");
+      });
+
+      $("#finger3").hover(function(){
+        $(this).css("background-color", "pink");
+        }, function(){
+        $(this).css("background-color", "yellow");
+      });
+
+      $("#finger4").hover(function(){
+        $(this).css("background-color", "pink");
+        }, function(){
+        $(this).css("background-color", "yellow");
+      });
 })
