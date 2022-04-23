@@ -18,29 +18,59 @@
         <div class="col-md-12"><h4>Place the correct fingering buttons for {{data.target}}</h4></div> 
     </div>
     <div id="quiz_question"> 
-        <div id ="draggable_fingerings">
-                <div class="row"> 
-                    <div class="col-md-2"> <br></div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div id="finger1" class="circle">1</div>
-                            <div id="finger2" class="circle">2</div>
-                            <div id="finger3" class="circle">3</div>
-                            <div id="finger4" class="circle">4</div>
-                        </div>
+            <div class="row"> 
+                <div class="col-md-2"> <br></div>
+                <div class="col-md-8">
+                    <div id="dots-group" class="row">
+                        <!--<div >-->
+                            <!--<div class="options" > -->
+                                <div id="finger1" class="circle">1</div>
+                                <div id="finger2" class="circle">2</div>
+                                <div id="finger3" class="circle">3</div>
+                                <div id="finger4" class="circle">4</div>
+                            <!--</div>-->
+                        <!--</div>-->
+                        
+                        
                     </div>
-
                 </div>
-        
-        </div>
-        
+            </div>  
     </div>
     
-    <div class = "bg-image" style = "background-image: url('{{data.ukulele}}'); height: 100vh">
-        
-    </div>
+    <div class="bg-image" style="background-image: url('{{data.ukulele}}'); height: 100vh; background-repeat: no-repeat">
+        <div class="container">
+            <div class="row table-blank">
+    
+            </div>
+            <!-- comment the first 2 rows of table-w-border to disappear the red border -->
+            <div class="row row-w-margin">
+                <div class="table-w-border" style="width: 72px; height: 30px;" data-idx="1"></div>
+                <div class="table-w-border" style="width: 69px; height: 30px;" data-idx="2"></div>
+                <div class="table-w-border" style="width: 63px; height: 30px;" data-idx="3"></div>
+                <div class="table-w-border" style="width: 60px; height: 30px;" data-idx="4"></div>
+            </div>
+            <div class="row row-w-margin">
+                <div class="table-w-border" style="width: 72px; height: 30px;" data-idx="5"></div>
+                <div class="table-w-border" style="width: 69px; height: 30px;" data-idx="6"></div>
+                <div class="table-w-border" style="width: 63px; height: 30px;" data-idx="7"></div>
+                <div class="table-w-border" style="width: 60px; height: 30px;" data-idx="8"></div>
+            </div>
+            <div class="row row-w-margin">
+                <div class="table-w-border" style="width: 72px; height: 35px;" data-idx="9"></div>
+                <div class="table-w-border" style="width: 69px; height: 35px;" data-idx="10"></div>
+                <div class="table-w-border" style="width: 63px; height: 35px;" data-idx="11"></div>
+                <div class="table-w-border" style="width: 60px; height: 35px;" data-idx="12"></div>
+            </div>
+            <div class="row row-w-margin">
+                <div class="table-w-border" style="width: 72px; height: 40px;" data-idx="13"></div>
+                <div class="table-w-border" style="width: 69px; height: 40px;" data-idx="14"></div>
+                <div class="table-w-border" style="width: 63px; height: 40px;" data-idx="15"></div>
+                <div class="table-w-border" style="width: 60px; height: 40px;" data-idx="16"></div>
+            </div>
+        </div>
+    </div>    
 
-    <div class="row align-items-center">
+    <div class="row">
         <div class="btn-align"> <!-- I want to move this to center-->
             <button class="btn btn-primary" id="prev">Previous</button>
             <button class="btn btn-primary" id="nxt">Next</button>

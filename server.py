@@ -55,7 +55,13 @@ quiz_data = [
         "target": "C",
         "next":"2",
         "previous":"",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "fingerings": {
+            "finger1": "",
+            "finger2": "",
+            "finger3": "3",
+            "finger4": ""
+        }
 
     },
     {
@@ -66,7 +72,13 @@ quiz_data = [
         "target": "G",
         "next":"3",
         "previous":"1",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+         "fingerings": {
+            "finger1": "10",
+            "finger2": "2",
+            "finger3": "7",
+            "finger4": ""
+        }
 
     },
     {
@@ -77,7 +89,13 @@ quiz_data = [
         "target": "F",
         "next":"4",
         "previous":"2",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+         "fingerings": {
+            "finger1": "5",
+            "finger2": "10",
+            "finger3": "",
+            "finger4": ""
+         }
 
     }
 ]

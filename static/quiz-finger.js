@@ -36,6 +36,11 @@ $(document).ready(function(){
     //     window.location.href = "/edit/" + data["id"];
     // })   
     
+    console.log(data.fingerings.finger1);
+    console.log(data.fingerings.finger2);
+    console.log(data.fingerings.finger3);
+    console.log(data.fingerings.finger4);
+
     $("#nxt").click(function(){
         if (data["id"] === "3"){
             console.log("here");
@@ -61,6 +66,9 @@ $(document).ready(function(){
         revert: 'invalid',
         stop:function(){
         $(this).draggable('option','revert','invalid')
+        },
+        activate: function(){
+            $(".table-w-border").css("border-style", "solid")
         }
     })
 
@@ -116,4 +124,24 @@ $(document).ready(function(){
         }, function(){
         $(this).css("background-color", "yellow");
       });
+
+      $(".table-w-border").droppable({
+        drop: function(event, ui){
+            console.log(ui.draggable.text())
+            console.log($(this).data("idx"))
+            $(".table-w-border").removeClass("show-border")
+        },
+
+        over: function(){
+            $(".table-w-border").addClass("show-border")
+        } 
+    })
+
+
+    $("#dots-group").droppable({
+        drop: function(event, ui){
+            console.log(ui.draggable.text() + " is put back.")
+            $(".table-w-border").removeClass("show-border")
+        }
+    })
 })

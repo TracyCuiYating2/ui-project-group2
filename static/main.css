@@ -9,11 +9,27 @@
     margin: 0 auto;
 }
 
+.table-blank{
+    height: 200px;
+}
+
+.row-w-margin{
+    margin-left: 382px;
+}
+
+.table-w-border{
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    /* height: 27px; */
+    color: white;
+    align-content: center;
+}
 
 .circle{
     border-radius: 50%;
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
     margin: 10px;
     background: yellow;
