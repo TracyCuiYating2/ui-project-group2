@@ -42,17 +42,18 @@ $(document).ready(function(){
     }
 
     $("#nxt").click(function(){
-        let response = {
-            "id": data.id,
-            "user": user
-        }
-
+        // let response = {
+        //     "id": data.id,
+        //     "user": user
+        // }
+        console.log(data["id"]);
         if (data["id"] === "6"){
             window.location.href = '/quiz/result'; //quiz result
         }else{
             window.location.href = '/quiz/' + data["next"] 
         }
     })
+
     $("#prev").click(function(){
         window.location.href = '/quiz/' + data["previous"]
     })            

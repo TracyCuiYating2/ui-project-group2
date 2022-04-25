@@ -3,7 +3,19 @@ $(document).ready(function(){
     $("#nav-learn").addClass("active")
 
     $("#prev").click(function(){
-        window.location.href = '/learn/' + data.prev
+        if (data.prev===""){
+            window.location.href = '/learn/basic';
+        }else{
+            window.location.href = '/learn/' + data.prev
+        }
+    })
+
+    $("#next").click(function(){
+        if (data.next===""){
+            window.location.href = '/quiz/1';
+        }else{
+            window.location.href = '/learn/' + data.next
+        }
     })
 
     // Clear previous fingerings first
@@ -19,12 +31,5 @@ $(document).ready(function(){
         $("#" + cells[fingering]).append(newFing)
     }
     
-    $(".next").click(function(){
-        if (data.id ===3){
-            console.log("correct");
-            window.location.href = '/quiz/1';
-        }else{
-            window.location.href = '/learn/' + data.next
-        }
-    })
+
 })
