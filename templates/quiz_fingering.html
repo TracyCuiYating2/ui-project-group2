@@ -1,4 +1,4 @@
-{% extends "learning_home.html" %}
+{% extends "home.html" %}
 
 {% block content %}
 
@@ -12,11 +12,26 @@
 
 <div class="container" id="basic-content">
     <div class="row">
-        <div class="col-md-12"><h3>Quizzes {{data.id}}/3</h3></div> 
+        <div class="col-md-12"><h3>Quizzes {{data.id}}/6</h3></div> 
     </div>
     <div class="row">
-        <div class="col-md-12"><h4>Place the correct fingering buttons for {{data.target}}</h4></div> 
+        <div class="col-md-8"><h4>Place the correct fingering buttons for {{data.target}}</h4></div> 
+        <div class="col-md-8">
+            <!-- <div class="btn-align">  -->
+                <button class="btn btn-primary" id="prev">Previous</button>
+                <button class="btn btn-primary" id="nxt">Next</button>
+            <!-- </div> -->
+        </div> 
+    
     </div>
+
+    <!-- <div class="row">
+        <div class="btn-align"> 
+            <button class="btn btn-primary" id="prev">Previous</button>
+            <button class="btn btn-primary" id="nxt">Next</button>
+        </div>
+    </div> -->
+
     <div id="quiz_question"> 
             <div class="row"> 
                 <div class="col-md-2"> <br></div>
@@ -36,7 +51,7 @@
                 </div>
             </div>  
     </div>
-    
+
     <div class="bg-image" style="background-image: url('{{data.ukulele}}'); height: 100vh; background-repeat: no-repeat">
         <div class="container">
             <div class="row table-blank">
@@ -70,12 +85,7 @@
         </div>
     </div>    
 
-    <div class="row">
-        <div class="btn-align"> <!-- I want to move this to center-->
-            <button class="btn btn-primary" id="prev">Previous</button>
-            <button class="btn btn-primary" id="nxt">Next</button>
-        </div>
-    </div>
+
     
 
 </div>

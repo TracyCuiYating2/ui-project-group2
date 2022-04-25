@@ -14,7 +14,7 @@ learnData = {
         "chordAudio": "/static/resources/G.mp3",
         "description": "Here is the G chord, your fingers should pressing the yellow dots on the strings.",
         "description2": "Here is the sound for the G chord!!!",
-        "prev": "basic",
+        "prev": "",
         "next": "2",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
         "fingerings": {
@@ -46,7 +46,7 @@ learnData = {
         "description": "Here is the C chord, your fingers should pressing the yellow dots on the strings.",
         "description2": "Here is the sound for the C chord!!!",
         "prev": "2",
-        "next": "quiz",
+        "next": "",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
         "fingerings": {
             "2": ""
@@ -63,13 +63,7 @@ quiz_data = [
         "target": "C",
         "next":"2",
         "previous":"",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
-        "fingerings": {
-            "1": "",
-            "2": "",
-            "3": "3",
-            "4": ""
-        }
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
     },
     {
         "id": "2", 
@@ -79,13 +73,7 @@ quiz_data = [
         "target": "G",
         "next":"3",
         "previous":"1",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
-         "fingerings": {
-            "1": "10",
-            "2": "2",
-            "3": "7",
-            "4": ""
-        }
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
     },
     {
         "id": "3", 
@@ -95,13 +83,7 @@ quiz_data = [
         "target": "F",
         "next":"4",
         "previous":"2",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
-         "fingerings": {
-            "1": "5",
-            "2": "10",
-            "3": "",
-            "4": ""
-         }
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
     },
         {
         "id": "4", 
@@ -112,12 +94,7 @@ quiz_data = [
         "next":"5",
         "previous":"",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
-        "fingerings": {
-            "1": "",
-            "2": "",
-            "3": "3",
-            "4": ""
-        }
+
     },
         {
         "id": "5", 
@@ -127,13 +104,7 @@ quiz_data = [
         "target": "G",
         "next":"6",
         "previous":"1",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
-         "fingerings": {
-            "1": "10",
-            "2": "2",
-            "3": "7",
-            "4": ""
-        }
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
     },
         {
         "id": "6", 
@@ -143,13 +114,7 @@ quiz_data = [
         "target": "F",
         "next":"",
         "previous":"2",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
-         "fingerings": {
-            "1": "5",
-            "2": "10",
-            "3": "",
-            "4": ""
-         }
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
     }
 ]
 
@@ -169,6 +134,36 @@ quiz_results = [
         "correct": "1",
         "user": ""
     },
+    {
+        "id": "4",
+        "correct": {
+            "1": "",
+            "2": "",
+            "3": "3",
+            "4": ""
+        },
+        "user":""
+    },
+    {
+        "id": "5",
+        "correct": {
+            "1": "10",
+            "2": "2",
+            "3": "7",
+            "4": ""
+        },
+        "user":""
+    },
+    {
+        "id": "6",
+        "correct": {
+            "1": "5",
+            "2": "10",
+            "3": "",
+            "4": ""
+         },
+        "user": ""
+    }
 ]
 
 # ROUTES
@@ -202,13 +197,11 @@ def learn_sound(id=None):
 def quiz(id=None):
     id = int(id)
     selected_data = quiz_data[id-1]
-    return render_template('quiz.html', data=selected_data) 
-
-@app.route('/quiz/<id>/fingering')
-def quiz_fingering(id=None):
-    id = int(id)
-    finger_data = quiz_data[id-1]
-    return render_template('quiz_fingering.html', data = finger_data)
+    if selected_data["type"] == '0':
+        return render_template('quiz.html', data=selected_data)
+    elif selected_data["type"] == '1':
+        print("here")
+        return render_template('quiz_fingering.html', data = selected_data)
 
 @app.route('/quiz/result')
 def quiz_feedback():

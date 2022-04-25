@@ -28,34 +28,33 @@ function displayPage(data){
         $("#quiz-content").append(item);
       });
     }
+
+
 $(document).ready(function(){
     //when the page loads, display all the names
     displayPage(data)  
-    // $("#edit-button").click(function(){
-    //     console.log("id:" + data["id"]);
-    //     window.location.href = "/edit/" + data["id"];
-    // })   
-    
-    console.log(data.fingerings.finger1);
-    console.log(data.fingerings.finger2);
-    console.log(data.fingerings.finger3);
-    console.log(data.fingerings.finger4);
+
+    let user_result = {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": ""
+    }
 
     $("#nxt").click(function(){
-        if (data["id"] === "3"){
-            console.log("here");
+        let response = {
+            "id": data.id,
+            "user": user
+        }
+
+        if (data["id"] === "6"){
             window.location.href = '/quiz/result'; //quiz result
         }else{
-            console.log("wrong");
-            window.location.href = '/quiz/' + data["next"] + '/fingering' //added for fingering page
+            window.location.href = '/quiz/' + data["next"] 
         }
     })
     $("#prev").click(function(){
-        if (data["id"] === "1"){
-            window.location.href = '/quiz/3'; //return to multiple choice
-        }else{
-            window.location.href = '/quiz/' + data["previous"] +'/fingering' //fingering page
-        }
+        window.location.href = '/quiz/' + data["previous"]
     })            
 
     //The buttons for the fingering are made draggable
@@ -137,7 +136,6 @@ $(document).ready(function(){
         } 
     })
 
-
     $("#dots-group").droppable({
         drop: function(event, ui){
             console.log(ui.draggable.text() + " is put back.")
@@ -145,3 +143,23 @@ $(document).ready(function(){
         }
     })
 })
+
+function save_user_response(selection) {
+    $.ajax({
+        type: "POST",
+        url: "save_user_response",                
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify(selection),
+        success: function(result){
+            quiz_data = result["quiz_results"]
+            console.log(quiz_data)
+        },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
