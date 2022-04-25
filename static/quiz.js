@@ -1,5 +1,3 @@
-
-
 function displayPage(data){
     let pic = $("<img class='quiz-image'>");
     $(pic).attr("src", data["image"][0]);
@@ -14,16 +12,6 @@ function displayPage(data){
         let button = $("<button class='btn btn-primary option' type='button'>");
         button.text(i);
 
-        $(".option").click(function(){
-            let user = $(this).html()
-            console.log(user)
-
-            let response = {
-                "user": user
-            }
-
-            save_user_response(response)
-        })
 
         let audio = $("<audio controls>");
         // let playSound = () => new Audio(datum).play();
@@ -39,7 +27,18 @@ function displayPage(data){
         $(item).append(audio);
 
         $("#quiz-content").append(item);
-    });
+    })
+    
+    $(".option").click(function(){
+        let user = $(this).html()
+
+        let response = {
+            "id": data.id,
+            "user": user
+        }
+
+        save_user_response(response)
+    })
 }
 
 function save_user_response(selection) {
@@ -50,9 +49,9 @@ function save_user_response(selection) {
         contentType: "application/json; charset=utf-8",
         data : JSON.stringify(selection),
         success: function(result){
-            data = result["quiz_results"]
+            quiz_data = result["quiz_results"]
             
-            console.log(data)
+            console.log(quiz_data)
         },
         error: function(request, status, error){
             console.log("Error");

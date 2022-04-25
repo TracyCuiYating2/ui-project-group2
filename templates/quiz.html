@@ -5,8 +5,10 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
 
 <script>
-    let data = {{ data| tojson}}; 
+    let data = {{data| tojson}}; 
     console.log(data)
+
+    let quiz_data;
 </script>
 
 <div class="container" id="basic-content">

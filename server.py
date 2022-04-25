@@ -75,12 +75,12 @@ quiz_data = [
 quiz_results = [
     {
         "id": "1",
-        "correct": "1",
+        "correct": "0",
         "user": ""
     },
     {
         "id": "2",
-        "correct": "1",
+        "correct": "2",
         "user": ""
     },
         {
@@ -110,14 +110,12 @@ def learn_fingering(id=None):
 
     return render_template('learn-fingering.html', data=data)
 
-
 @app.route('/learn/<id>/sound')
 def learn_sound(id=None):
     global learnData
     data = learnData[id]
 
     return render_template('learn-sound.html', data=data)
-
 
 @app.route('/quiz/<id>')
 def quiz(id=None):
@@ -135,7 +133,7 @@ def save_user_response():
     global quiz_results
 
     json_data = request.get_json()
-    i = int(json_data["user"])  
+    i = (int(json_data["id"])) - 1 
     response = json_data["user"]
 
     quiz_results[i]["user"] = response   # NEED TO FIX I DOESNT WORK
