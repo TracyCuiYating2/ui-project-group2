@@ -9,8 +9,9 @@ function displayPage(data){
         // // <button onclick="playSound()">Play</button>
         // let audio = new Audio(datum);
         let item = $("<div>");
-        let button = $("<button>");
+        let button = $("<button class='btn btn-primary option' type='button'>");
         button.text(i);
+
 
         let audio = $("<audio controls>");
         // let playSound = () => new Audio(datum).play();
@@ -26,8 +27,41 @@ function displayPage(data){
         $(item).append(audio);
 
         $("#quiz-content").append(item);
-      });
-    }
+    })
+    
+    $(".option").click(function(){
+        let user = $(this).html()
+
+        let response = {
+            "id": data.id,
+            "user": user
+        }
+
+        save_user_response(response)
+    })
+}
+
+function save_user_response(selection) {
+    $.ajax({
+        type: "POST",
+        url: "save_user_response",                
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify(selection),
+        success: function(result){
+            quiz_data = result["quiz_results"]
+            
+            console.log(quiz_data)
+        },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
+
 $(document).ready(function(){
     //when the page loads, display all the names
     displayPage(data)  

@@ -2,26 +2,9 @@ $(document).ready(function(){
     $("#page-title").text("Fingering Learning")
     $("#nav-learn").addClass("active")
 
-    //next learning page?
-    $("#nxt").click(function(){
-        window.location.href = '/learn/' + data.id + '/sound'
-    })
     $("#prev").click(function(){
         window.location.href = '/learn/' + data.prev
     })
-
-    // let id = pageID
-    // let chordID = learnData.id
-
-    // if(chordID = id)
-    // {
-    //     let chordDisplay =$("<div class='chords'> ")
-    //     chordDisplay.append("<div class='chordImage'>" + learnData.chordIMG + " </div>")
-    //     chordDisplay.append("<div class='chordInfo'>  Here is the " + learnData.chord + " C chord, your fingers should pressing the yellow dots on the strings. </div>")
-
-    // }
-
-    // $("#chordLearning").append(chordDisplay)
 
     // Clear previous fingerings first
     for (let i = 1; i < 17; i++){
@@ -36,5 +19,12 @@ $(document).ready(function(){
         $("#" + cells[fingering]).append(newFing)
     }
     
+    $(".next").click(function(){
+        if (data.id ===3){
+            console.log("correct");
+            window.location.href = '/quiz/1';
+        }else{
+            window.location.href = '/learn/' + data.next
+        }
+    })
 })
-

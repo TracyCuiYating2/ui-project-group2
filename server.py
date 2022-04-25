@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-from flask import Response, request, jsonify
+from flask import Response, request, jsonify, json
 from itsdangerous import json
 app = Flask(__name__)
 
@@ -54,10 +54,6 @@ learnData = {
    }
 }
 
-
-
-
-# ROUTES
 quiz_data = [ 
     {
         "id": "1", 
@@ -69,12 +65,11 @@ quiz_data = [
         "previous":"",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
         "fingerings": {
-            "finger1": "",
-            "finger2": "",
-            "finger3": "3",
-            "finger4": ""
+            "1": "",
+            "2": "",
+            "3": "3",
+            "4": ""
         }
-
     },
     {
         "id": "2", 
@@ -86,12 +81,11 @@ quiz_data = [
         "previous":"1",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
          "fingerings": {
-            "finger1": "10",
-            "finger2": "2",
-            "finger3": "7",
-            "finger4": ""
+            "1": "10",
+            "2": "2",
+            "3": "7",
+            "4": ""
         }
-
     },
     {
         "id": "3", 
@@ -103,19 +97,84 @@ quiz_data = [
         "previous":"2",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
          "fingerings": {
-            "finger1": "5",
-            "finger2": "10",
-            "finger3": "",
-            "finger4": ""
+            "1": "5",
+            "2": "10",
+            "3": "",
+            "4": ""
          }
-
+    },
+        {
+        "id": "4", 
+        "type": "1", 
+        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg"], 
+        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
+        "target": "C",
+        "next":"5",
+        "previous":"",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "fingerings": {
+            "1": "",
+            "2": "",
+            "3": "3",
+            "4": ""
+        }
+    },
+        {
+        "id": "5", 
+        "type": "1", 
+        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/G.svg"], 
+        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
+        "target": "G",
+        "next":"6",
+        "previous":"1",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+         "fingerings": {
+            "1": "10",
+            "2": "2",
+            "3": "7",
+            "4": ""
+        }
+    },
+        {
+        "id": "6", 
+        "type": "1", 
+        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/F.svg"], 
+        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
+        "target": "F",
+        "next":"",
+        "previous":"2",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+         "fingerings": {
+            "1": "5",
+            "2": "10",
+            "3": "",
+            "4": ""
+         }
     }
 ]
-quiz_result = []
 
+quiz_results = [
+    {
+        "id": "1",
+        "correct": "0",
+        "user": ""
+    },
+    {
+        "id": "2",
+        "correct": "2",
+        "user": ""
+    },
+        {
+        "id": "3",
+        "correct": "1",
+        "user": ""
+    },
+]
+
+# ROUTES
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('start.html')
 
 @app.route('/learn/basic')
 def basic():
@@ -132,14 +191,12 @@ def learn_fingering(id=None):
 
     return render_template('learn-fingering.html', data=data)
 
-
 @app.route('/learn/<id>/sound')
 def learn_sound(id=None):
     global learnData
     data = learnData[id]
 
     return render_template('learn-sound.html', data=data)
-
 
 @app.route('/quiz/<id>')
 def quiz(id=None):
@@ -155,7 +212,20 @@ def quiz_fingering(id=None):
 
 @app.route('/quiz/result')
 def quiz_feedback():
-    return render_template('quiz-result.html', data=quiz_result)
+    return render_template('quiz-result.html', data=quiz_results)
+
+# AJAX Functions
+@app.route('/quiz/save_user_response', methods=['POST'])
+def save_user_response():
+    global quiz_results
+
+    json_data = request.get_json()
+    i = (int(json_data["id"])) - 1 
+    response = json_data["user"]
+
+    quiz_results[i]["user"] = response   # NEED TO FIX I DOESNT WORK
+
+    return jsonify(quiz_results=quiz_results)
 
 if __name__ == '__main__':
    app.run(debug = True)

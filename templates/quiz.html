@@ -1,11 +1,14 @@
-{% extends "learning_home.html" %}
+{% extends "home.html" %}
 
 {% block content %}
 
 <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
 
 <script>
-    let data = {{ data| tojson}}; 
+    let data = {{data| tojson}}; 
+    console.log(data)
+
+    let quiz_data;
 </script>
 
 <div class="container" id="basic-content">
@@ -15,6 +18,7 @@
     <div class="row">
         <div class="col-md-12"><h4>From the following 3 audio, which one is {{data.target}} chord?</h4></div> 
     </div>
+
     <div class="row" id="quiz_question">
         <div class="col-md-4" id="quiz-image">
             <!-- <img src="https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg" alt="C" width="50%"> -->
@@ -23,6 +27,7 @@
             <!-- <img src="https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png" alt="ukulele" width="95%"> -->
         </div>
     </div>
+
     <div class="btn-align">
         <button class="btn btn-primary" id="prev">Previous</button>
         <button class="btn btn-primary" id="nxt">Next</button>
