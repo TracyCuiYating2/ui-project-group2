@@ -63,21 +63,10 @@ function save_user_response(selection) {
 }
 
 $(document).ready(function(){
-    //when the page loads, display all the names
     displayPage(data)  
-    // $("#edit-button").click(function(){
-    //     console.log("id:" + data["id"]);
-    //     window.location.href = "/edit/" + data["id"];
-    // })   
-    
+
     $("#nxt").click(function(){
-        if (data["id"] === "3"){
-            console.log("here");
-            window.location.href = '/quiz/1/fingering'; //move to fingering section
-        }else{
-            console.log("wrong");
-            window.location.href = '/quiz/' + data["next"]
-        }
+        window.location.href = '/quiz/' + data["next"]
     })
     $("#prev").click(function(){
         if (data["id"] === "1"){

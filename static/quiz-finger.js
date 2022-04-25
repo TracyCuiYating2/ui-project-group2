@@ -28,34 +28,34 @@ function displayPage(data){
         $("#quiz-content").append(item);
       });
     }
+
+
 $(document).ready(function(){
     //when the page loads, display all the names
     displayPage(data)  
-    // $("#edit-button").click(function(){
-    //     console.log("id:" + data["id"]);
-    //     window.location.href = "/edit/" + data["id"];
-    // })   
-    
-    console.log(data.fingerings.finger1);
-    console.log(data.fingerings.finger2);
-    console.log(data.fingerings.finger3);
-    console.log(data.fingerings.finger4);
+
+    let user_result = {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": ""
+    }
 
     $("#nxt").click(function(){
-        if (data["id"] === "3"){
-            console.log("here");
+        // let response = {
+        //     "id": data.id,
+        //     "user": user
+        // }
+        console.log(data["id"]);
+        if (data["id"] === "6"){
             window.location.href = '/quiz/result'; //quiz result
         }else{
-            console.log("wrong");
-            window.location.href = '/quiz/' + data["next"] + '/fingering' //added for fingering page
+            window.location.href = '/quiz/' + data["next"] 
         }
     })
+
     $("#prev").click(function(){
-        if (data["id"] === "1"){
-            window.location.href = '/quiz/3'; //return to multiple choice
-        }else{
-            window.location.href = '/quiz/' + data["previous"] +'/fingering' //fingering page
-        }
+        window.location.href = '/quiz/' + data["previous"]
     })            
 
     //The buttons for the fingering are made draggable
@@ -137,42 +137,16 @@ $(document).ready(function(){
         } 
     })
 
+
     //where the dots can return to
+
     $("#dots-group").droppable({
         drop: function(event, ui){
             console.log(ui.draggable.text() + " is put back.")
             $(".table-w-border").removeClass("show-border")
         }
     })
-
-    //clears the chords
-    for (let i = 1; i < 17; i++){
-        $("#" + String(i)).empty()
-    }
-
-    //from tian's code
-    let cells = data["fingerings"]
-    for(let fingering in cells){
-        console.log(fingering, cells[fingering])
-        let newFing = $("<div>"+fingering+"</div>")
-        newFing.addClass("circle")
-        $("#" + cells[fingering]).append(newFing)
-    }
-
-    /* Damian's code 
-
-    need to be able to save the placement of the fingering 
-    $(".option").click(function(){
-        let user = $(this).html()
-
-        let response = {
-            "id": data.id,
-            "user": user
-        }
-
-        save_user_response(response)
-    })
-}
+})
 
 function save_user_response(selection) {
     $.ajax({
@@ -183,7 +157,6 @@ function save_user_response(selection) {
         data : JSON.stringify(selection),
         success: function(result){
             quiz_data = result["quiz_results"]
-            
             console.log(quiz_data)
         },
         error: function(request, status, error){
@@ -193,7 +166,4 @@ function save_user_response(selection) {
             console.log(error)
         }
     });
-    */
-
-
-})
+}
