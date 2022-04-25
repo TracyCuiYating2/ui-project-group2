@@ -18,7 +18,7 @@
 }
 
 .table-w-border{
-    border-style: solid;
+    border-style: none;
     border-color: red;
     border-width: 1px;
     /* height: 27px; */
@@ -26,12 +26,15 @@
     align-content: center;
 }
 
+.show-border{
+    border-style: solid;
+}
+
 .circle{
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    padding: 10px;
-    margin: 10px;
+    margin-left: 30%;
     background: yellow;
     border: 2px solid #000;
     color: #000;

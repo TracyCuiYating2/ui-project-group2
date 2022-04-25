@@ -17,6 +17,11 @@ learnData = {
         "prev": "basic",
         "next": "2",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "fingerings": {
+            "1": "10",
+            "2": "2",
+            "3": "7",
+        }
     },
     "2": {
         "id": 2,
@@ -28,6 +33,10 @@ learnData = {
         "prev": "1",
         "next": "3",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "fingerings": {
+            "1": "5",
+            "2": "10",
+         }
     },
     "3": {
         "id": 3,
@@ -39,6 +48,9 @@ learnData = {
         "prev": "2",
         "next": "quiz",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "fingerings": {
+            "2": ""
+        }
    }
 }
 
