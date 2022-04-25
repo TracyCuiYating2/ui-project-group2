@@ -1,4 +1,4 @@
-{% extends "learning_home.html" %}
+{% extends "home.html" %}
 
 {% block content %}
 
@@ -8,22 +8,69 @@
     let data = {{data|tojson}}
 </script>
 
+
 <div class="container" id="basic-content">
     <div class="row">
-        <div class="col-md-4">
-            <img src="{{data.chordIMG}}" alt="C" width="50%">
-        </div>
-        <div class="col-md-8">
-            <img src="{{data.ukulele}}" alt="ukulele" width="95%">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <h3>Learning {{data.chord}} Chord</h3>
         </div>
     </div>
-    <div>
-        {{data.description}}
+    <div class="row">
+        <div class="col-md-2">
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+            <div class="position-sticky">
+              <div class="list-group list-group-flush mx-3 mt-4">
+                <a href="/learn/1" class="list-group-item list-group-item-action py-2 ripple ">
+                    <i class="fas fa-chart-area fa-fw me-3"></i><span>G</span>
+                  </a>
+                <a href="/learn/2" class="list-group-item list-group-item-action py-2 ripple">
+                  <i class="fas fa-chart-area fa-fw me-3"></i><span>F</span>
+                </a>
+                <a href="/learn/3" class="list-group-item list-group-item-action py-2 ripple ">
+                    <i class="fas fa-chart-area fa-fw me-3"></i><span>C</span>
+                  </a>
+            </div>
+        </div>
+        </nav>
+        </div> 
+        <div class="col-md-10"> 
+            <div class="row">
+                <div class="col-md-4">
+                    <div><b>Fingering</b></div>
+                    <div> Remember where to put your fingers!</div>
+                    <img src="{{data.chordIMG}}" alt="chord picture" width="50%">
+                </div>
+                <div class="col-md-4">
+                    <div><b>Audio</b></div>
+                    <div>Listen to {{data.chord}} chord, and remember the sound!</div>
+                    <audio controls>
+                        <source src="{{data.chordAudio}}" type="audio/mpeg" preload="auto">
+                        <embed height="50" width="100" src="{{data.chordAudio}}">
+                        Your browser does not support this type of audio!
+                    </audio>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <div>Hint: </div>
+                    <img src="https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukuchords/ukuchords_howtoreadchordcharts.png" alt="chord_diagram" width="70%">
+                </div>
+             </div>
+             
+            <div class="row">
+                <div class="btn-align">
+                    <button class="btn btn-primary prev">Previous</button>
+                    <button class="btn btn-primary next">Next</button>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class="btn-align">
-        <button class="btn btn-primary prev">Previous</button>
-        <button class="btn btn-primary next">Next</button>
-    </div>
+
+    <div class="bg-image" style="background-image: url('{{data.ukulele}}'); height: 100vh"></div>
+   
+
+
 </div>
 
 {% endblock %}

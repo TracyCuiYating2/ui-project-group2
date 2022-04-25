@@ -42,6 +42,8 @@ learnData = {
    }
 }
 
+
+
 quiz_data = [ 
     {
         "id": "1", 
@@ -93,7 +95,7 @@ quiz_results = [
 # ROUTES
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('start.html')
 
 @app.route('/learn/basic')
 def basic():
