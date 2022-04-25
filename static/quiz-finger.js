@@ -42,10 +42,12 @@ $(document).ready(function(){
     }
 
     $("#nxt").click(function(){
-        // let response = {
-        //     "id": data.id,
-        //     "user": user
-        // }
+        let response = {
+            "id": data.id,
+            "user": user_result
+        }
+        save_user_response(response);
+        
         console.log(data["id"]);
         if (data["id"] === "6"){
             window.location.href = '/quiz/result'; //quiz result
@@ -129,6 +131,8 @@ $(document).ready(function(){
         drop: function(event, ui){
             console.log(ui.draggable.text())
             console.log($(this).data("idx"))
+            user_result[ui.draggable.text()] = $(this).data("idx");
+            console.log(user_result);
             $(".table-w-border").removeClass("show-border")
         },
 

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     if (data[0].user != data[0].correct) {
         let container = $("<div class='review'>")
         let header = $("<a>").html("C Chord")

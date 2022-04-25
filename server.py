@@ -213,9 +213,9 @@ def save_user_response():
     json_data = request.get_json()
     i = (int(json_data["id"])) - 1 
     response = json_data["user"]
-
+    
     quiz_results[i]["user"] = response   # NEED TO FIX I DOESNT WORK
-
+    # print(quiz_results)
     return jsonify(quiz_results=quiz_results)
 
 if __name__ == '__main__':
