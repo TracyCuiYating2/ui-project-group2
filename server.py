@@ -49,7 +49,7 @@ learnData = {
         "next": "",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
         "fingerings": {
-            "2": ""
+            "3": "3"
         }
    }
 }
@@ -206,19 +206,6 @@ def quiz(id=None):
 @app.route('/quiz/result')
 def quiz_feedback():
     return render_template('quiz-result.html', data=quiz_results)
-
-# AJAX Functions
-@app.route('/quiz/save_user_response', methods=['POST'])
-def save_user_response():
-    global quiz_results
-
-    json_data = request.get_json()
-    i = (int(json_data["id"])) - 1 
-    response = json_data["user"]
-
-    quiz_results[i]["user"] = response   # NEED TO FIX I DOESNT WORK
-
-    return jsonify(quiz_results=quiz_results)
 
 # AJAX Functions
 @app.route('/quiz/save_user_response', methods=['POST'])
