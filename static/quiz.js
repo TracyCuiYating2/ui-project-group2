@@ -39,7 +39,7 @@ $(document).ready(function(){
     $("#nxt").click(function(){
         if (data["id"] === "3"){
             console.log("here");
-            window.location.href = '/quiz/result';
+            window.location.href = '/quiz/1/fingering'; //move to fingering section
         }else{
             console.log("wrong");
             window.location.href = '/quiz/' + data["next"]

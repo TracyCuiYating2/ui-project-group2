@@ -17,6 +17,11 @@ learnData = {
         "prev": "basic",
         "next": "2",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "fingerings": {
+            "1": "10",
+            "2": "2",
+            "3": "7",
+        }
     },
     "2": {
         "id": 2,
@@ -28,6 +33,10 @@ learnData = {
         "prev": "1",
         "next": "3",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "fingerings": {
+            "1": "5",
+            "2": "10",
+         }
     },
     "3": {
         "id": 3,
@@ -39,6 +48,9 @@ learnData = {
         "prev": "2",
         "next": "quiz",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "fingerings": {
+            "2": ""
+        }
    }
 }
 
@@ -54,7 +66,15 @@ quiz_data = [
         "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
         "target": "C",
         "next":"2",
-        "previous":""
+        "previous":"",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "fingerings": {
+            "finger1": "",
+            "finger2": "",
+            "finger3": "3",
+            "finger4": ""
+        }
+
     },
     {
         "id": "2", 
@@ -63,7 +83,15 @@ quiz_data = [
         "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
         "target": "G",
         "next":"3",
-        "previous":"1"
+        "previous":"1",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+         "fingerings": {
+            "finger1": "10",
+            "finger2": "2",
+            "finger3": "7",
+            "finger4": ""
+        }
+
     },
     {
         "id": "3", 
@@ -72,7 +100,15 @@ quiz_data = [
         "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
         "target": "F",
         "next":"4",
-        "previous":"2"
+        "previous":"2",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+         "fingerings": {
+            "finger1": "5",
+            "finger2": "10",
+            "finger3": "",
+            "finger4": ""
+         }
+
     }
 ]
 quiz_result = []
@@ -110,6 +146,12 @@ def quiz(id=None):
     id = int(id)
     selected_data = quiz_data[id-1]
     return render_template('quiz.html', data=selected_data) 
+
+@app.route('/quiz/<id>/fingering')
+def quiz_fingering(id=None):
+    id = int(id)
+    finger_data = quiz_data[id-1]
+    return render_template('quiz_fingering.html', data = finger_data)
 
 @app.route('/quiz/result')
 def quiz_feedback():
