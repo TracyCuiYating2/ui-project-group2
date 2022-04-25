@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-from flask import Response, request, jsonify
+from flask import Response, request, jsonify, json
 from itsdangerous import json
 app = Flask(__name__)
 
@@ -42,10 +42,6 @@ learnData = {
    }
 }
 
-
-
-
-# ROUTES
 quiz_data = [ 
     {
         "id": "1", 
@@ -75,8 +71,26 @@ quiz_data = [
         "previous":"2"
     }
 ]
-quiz_result = []
 
+quiz_results = [
+    {
+        "id": "1",
+        "correct": "0",
+        "user": ""
+    },
+    {
+        "id": "2",
+        "correct": "2",
+        "user": ""
+    },
+        {
+        "id": "3",
+        "correct": "1",
+        "user": ""
+    },
+]
+
+# ROUTES
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -96,14 +110,12 @@ def learn_fingering(id=None):
 
     return render_template('learn-fingering.html', data=data)
 
-
 @app.route('/learn/<id>/sound')
 def learn_sound(id=None):
     global learnData
     data = learnData[id]
 
     return render_template('learn-sound.html', data=data)
-
 
 @app.route('/quiz/<id>')
 def quiz(id=None):
@@ -113,7 +125,20 @@ def quiz(id=None):
 
 @app.route('/quiz/result')
 def quiz_feedback():
-    return render_template('quiz-result.html', data=quiz_result)
+    return render_template('quiz-result.html', data=quiz_results)
+
+# AJAX Functions
+@app.route('/quiz/save_user_response', methods=['POST'])
+def save_user_response():
+    global quiz_results
+
+    json_data = request.get_json()
+    i = (int(json_data["id"])) - 1 
+    response = json_data["user"]
+
+    quiz_results[i]["user"] = response   # NEED TO FIX I DOESNT WORK
+
+    return jsonify(quiz_results=quiz_results)
 
 if __name__ == '__main__':
    app.run(debug = True)
