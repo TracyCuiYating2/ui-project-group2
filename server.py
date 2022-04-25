@@ -157,5 +157,19 @@ def quiz_fingering(id=None):
 def quiz_feedback():
     return render_template('quiz-result.html', data=quiz_result)
 
+# AJAX Functions
+@app.route('/quiz/save_user_response', methods=['POST'])
+def save_user_response():
+    global quiz_results
+
+    json_data = request.get_json()
+    i = (int(json_data["id"])) - 1 
+    response = json_data["user"]
+
+    quiz_results[i]["user"] = response   # NEED TO FIX I DOESNT WORK
+
+    return jsonify(quiz_results=quiz_results)
+
+    #how do we change this so that it works for the fingering?
 if __name__ == '__main__':
    app.run(debug = True)

@@ -137,11 +137,63 @@ $(document).ready(function(){
         } 
     })
 
-
+    //where the dots can return to
     $("#dots-group").droppable({
         drop: function(event, ui){
             console.log(ui.draggable.text() + " is put back.")
             $(".table-w-border").removeClass("show-border")
         }
     })
+
+    //clears the chords
+    for (let i = 1; i < 17; i++){
+        $("#" + String(i)).empty()
+    }
+
+    //from tian's code
+    let cells = data["fingerings"]
+    for(let fingering in cells){
+        console.log(fingering, cells[fingering])
+        let newFing = $("<div>"+fingering+"</div>")
+        newFing.addClass("circle")
+        $("#" + cells[fingering]).append(newFing)
+    }
+
+    /* Damian's code 
+
+    need to be able to save the placement of the fingering 
+    $(".option").click(function(){
+        let user = $(this).html()
+
+        let response = {
+            "id": data.id,
+            "user": user
+        }
+
+        save_user_response(response)
+    })
+}
+
+function save_user_response(selection) {
+    $.ajax({
+        type: "POST",
+        url: "save_user_response",                
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify(selection),
+        success: function(result){
+            quiz_data = result["quiz_results"]
+            
+            console.log(quiz_data)
+        },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    });
+    */
+
+
 })
