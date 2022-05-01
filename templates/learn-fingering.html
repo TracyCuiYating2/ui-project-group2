@@ -9,7 +9,7 @@
 </script>
 
 
-<div class="container" id="basic-content">
+<div id="basic-content"> <!-- Removed the container from this, since the home.html page already places everything within a container-->
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-10">
@@ -56,15 +56,7 @@
                     <img src="https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukuchords/ukuchords_howtoreadchordcharts.png" alt="chord_diagram" width="70%">
                 </div>
              </div>
-             
-            <div class="row">
-                <div class="btn-align">
-                    <button class="btn btn-primary" id = "prev">Previous</button>
-                    <button class="btn btn-primary" id = 'next'>Next</button>
-                </div>
-            </div>
-        </div>
-
+            
     </div>
 
    
@@ -104,5 +96,14 @@
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="btn-align">
+        <button class="btn btn-primary" id = "prev">Previous</button>
+        <button class="btn btn-primary" id = 'next'>Next</button>
+    </div>
+</div>
+</div>
+
 
 {% endblock %}

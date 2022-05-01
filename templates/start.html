@@ -2,10 +2,29 @@
 
 {% extends "home.html" %}
 {% block content %}
+
 <script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
 
-<div class="container">
-    <h1>Aloha! Let's learn some Ukulele chords!</h1>
-    <button class="btn btn-primary" id="start">Start!</button>
+    <div class="page-title">
+        <h1>Aloha! Let's learn some Ukulele chords!</h1>
+    </div> 
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-6"> 
+            <div class="center-img"> <!--Not fully centered -- not sure why not working, but appears centered with columns-->
+                <img src="https://images.unsplash.com/photo-1465659398573-cc071d2531d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"  width=70% height=70%>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row"> <br><!-- blank row for spacing--> </div>
+
+    <div class="row">
+        <div class="btn-align">
+            <button class="btn btn-primary" id="start">Start!</button>
+        </div>
+    </div>
+    
 </div>
 {% endblock %}

@@ -11,24 +11,28 @@
     let quiz_data;
 </script>
 
-<div class="container" id="basic-content">
+<div id="basic-content"> <!-- Removed the container from this, since the home.html page already places everything within a container-->
     <div class="row">
         <div class="col-md-12"><h3>Quizzes {{data.id}}/6</h3></div> 
     </div>
     <div class="row">
         <div class="col-md-12"><h4>From the following 3 audio, which one is {{data.target}} chord?</h4></div> 
     </div>
+    <div class="row"> <br><!-- blank row --> </div>
 
     <div class="row" id="quiz_question">
-        <div class="col-md-4" id="quiz-image">
+        <div class ="col-md-2"></div>
+        <div class="col-md-3" id="quiz-image"> <!-- Potentially able to resize image to fit in each column-->
             <!-- <img src="https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg" alt="C" width="50%"> -->
         </div>
-        <div class="col-md-8" id ='quiz-content'>
+        <div class="col-md-6" id ='quiz-content'>
             <!-- <img src="https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png" alt="ukulele" width="95%"> -->
         </div>
     </div>
 
-    <div class="btn-align">
+    <div class="row"> <br><!-- blank row for spacing--> </div>
+
+    <div class="btn-align"> <!-- trying to center button to the middle of the page-->
         <button class="btn btn-primary" id="prev">Previous</button>
         <button class="btn btn-primary" id="nxt">Next</button>
     </div>
