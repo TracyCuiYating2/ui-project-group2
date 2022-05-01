@@ -10,7 +10,7 @@ function displayPage(data){
         // let audio = new Audio(datum);
         let item = $("<div>");
         let button = $("<button class='btn btn-primary option' type='button'>");
-        button.text(i);
+        button.text(String.fromCharCode(i+65));
 
 
         let audio = $("<audio controls>");

@@ -35,7 +35,7 @@ learnData = {
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
         "fingerings": {
             "1": "5",
-            "2": "10",
+            "2": "14",
          }
     },
     "3": {
