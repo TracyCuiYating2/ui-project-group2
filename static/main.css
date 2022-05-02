@@ -8,11 +8,12 @@
     margin: 0 auto;
 }
 
-.center-img{
+.center-screen{
     align-self: flex-end;
     margin: 0 auto;
 }
-}
+
+
 .table-blank{
     height: 200px;
 }

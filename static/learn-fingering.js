@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     $("#next").click(function(){
         if (data.next===""){
-            window.location.href = '/quiz/1';
+            window.location.href = '/learn/check';
         }else{
             window.location.href = '/learn/' + data.next
         }

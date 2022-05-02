@@ -179,6 +179,10 @@ def basic():
 def basic_contd():
     return render_template('basic-contd.html')
 
+@app.route('/learn/check')
+def check_ready():
+    return render_template('learning_quiz_check.html')
+
 @app.route('/learn/<id>')
 def learn_fingering(id=None):
     global learnData
