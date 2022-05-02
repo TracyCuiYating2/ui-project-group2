@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     $("#next").click(function(){
         if (data.next===""){
-            window.location.href = '/quiz/1';
+            window.location.href = '/learn/check';
         }else{
             window.location.href = '/learn/' + data.next
         }
@@ -31,5 +31,9 @@ $(document).ready(function(){
         $("#" + cells[fingering]).append(newFing)
     }
     
-
+    for (let i = 1; i <= 3; i++) {
+       if (parseInt(data.id) == i) {
+            $("#learn" + i).css("background-color", "#e0e0e0");
+        }
+    }
 })

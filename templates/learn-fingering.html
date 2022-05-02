@@ -9,25 +9,27 @@
 </script>
 
 
-<div class="container" id="basic-content">
+<div id="basic-content"> <!-- Removed the container from this, since the home.html page already places everything within a container-->
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-10">
             <h3>Learning {{data.chord}} Chord</h3>
         </div>
     </div>
+    <div class="row"> <br><!-- blank row --> </div>
+
     <div class="row">
         <div class="col-md-2">
         <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
             <div class="position-sticky">
               <div class="list-group list-group-flush mx-3 mt-4">
-                <a href="/learn/1" class="list-group-item list-group-item-action py-2 ripple ">
+                <a href="/learn/1" id="learn1" class="list-group-item list-group-item-action py-2 ripple">
                     <i class="fas fa-chart-area fa-fw me-3"></i><span>G</span>
                   </a>
-                <a href="/learn/2" class="list-group-item list-group-item-action py-2 ripple">
+                <a href="/learn/2" id="learn2" class="list-group-item list-group-item-action py-2 ripple">
                   <i class="fas fa-chart-area fa-fw me-3"></i><span>F</span>
                 </a>
-                <a href="/learn/3" class="list-group-item list-group-item-action py-2 ripple ">
+                <a href="/learn/3" id="learn3" class="list-group-item list-group-item-action py-2 ripple">
                     <i class="fas fa-chart-area fa-fw me-3"></i><span>C</span>
                   </a>
             </div>
@@ -105,5 +107,17 @@
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="btn-align">
+        <button class="btn btn-primary" id = "prev">Previous</button>
+        <button class="btn btn-primary" id = 'next'>Next</button>
+    </div>
+</div>
+
+<div class="row"> <br><!-- blank row --> </div>
+
+</div>
+
 
 {% endblock %}

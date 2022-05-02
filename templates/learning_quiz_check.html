@@ -1,0 +1,36 @@
+
+
+{% extends "home.html" %}
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn-check.js') }}"></script>
+
+  
+<div class="page-title">
+    <h1> Do you feel ready to test your knowledge? </h1>
+</div>
+        
+    <div class ="row">
+        <p class = "center-screen">
+            The quiz portion will test you on the fingering placement for the C, F, and G chords, as well as their respective audios.
+        </p>
+
+        <p class = "center-screen">
+            If you don't quite feel as ready yet, please click the button on the left, "Go back to learn!" to review the chords again. 
+            <br>
+            If you are ready to test your knowledge, please click the button on the right, "Time to test!"
+        </p>
+
+    </div>
+    <div class="row"> <br><!-- blank row for spacing--> </div>
+
+    <div class="row">
+        <div class="btn-align"> <!-- trying to center button to the middle of the page-->
+            <button class="btn btn-primary" id="prev">  Go back to learn!</button>
+        
+            <button class="btn btn-primary" id="next"> Time to test! </button>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

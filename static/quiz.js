@@ -9,7 +9,7 @@ function displayPage(data){
         // // <button onclick="playSound()">Play</button>
         // let audio = new Audio(datum);
         let item = $("<div>");
-        let button = $("<button class='btn btn-primary option' type='button'>");
+        let button = $("<button class='btn btn-primary option vertical' type='button'>");
         button.text(String.fromCharCode(i+65));
         button.attr('id', i)
 
