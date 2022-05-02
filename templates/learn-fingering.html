@@ -66,26 +66,9 @@
 
 </div>
 
-<div class="bg-image" style="background-image: url('{{data.ukulele}}'); height: 100vh; background-repeat: no-repeat">
+<div class="bg-image" style="background-image: url('{{data.ukulele}}'); background-position: 0px -125px; height: 100vh; background-repeat: no-repeat">
     <div class="container">
-
-        <div class="row table-blank">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-4">
-                <div><b>Audio</b></div>
-                <div>Listen to {{data.chord}} chord, and remember the sound!</div>
-                <audio controls>
-                    <source src="{{data.chordAudio}}" type="audio/mpeg" preload="auto">
-                    <embed height="50" width="100" src="{{data.chordAudio}}">
-                    Your browser does not support this type of audio!
-                </audio>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-            </div>
-
-        </div>
+        <div style="height: 73px;"></div>
         <!-- comment the first 2 rows of table-w-border to disappear the red border -->
         <div class="row row-w-margin">
             <div class="table-w-border" style="width: 72px; height: 30px;" id="1"></div>
