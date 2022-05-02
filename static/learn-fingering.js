@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     $("#prev").click(function(){
         if (data.prev===""){
-            window.location.href = '/learn/basic';
+            window.location.href = '/learn/basic-contd';
         }else{
             window.location.href = '/learn/' + data.prev
         }

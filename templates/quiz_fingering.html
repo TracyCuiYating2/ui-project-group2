@@ -11,76 +11,84 @@
 </script>
 
 <div class="container" id="basic-content">
-    <div class="row">
-        <div class="col-md-12"><h3>Quizzes {{data.id}}/6</h3></div> 
-    </div>
-    <div class="row">
-        <div class="col-md-8"><h4>Place the correct fingering buttons for {{data.target}}</h4></div> 
-        <div class="col-md-8">
-            <!-- <div class="btn-align">  -->
-                <button class="btn btn-primary" id="prev">Previous</button>
-                <button class="btn btn-primary" id="nxt">Next</button>
-            <!-- </div> -->
-        </div> 
-    
-    </div>
-
-    <div id="quiz_question"> 
-            <div class="row"> 
-                <div class="col-md-2"> <br></div>
-                <div class="col-md-8">
-                    <div id="dots-group" class="row">
-                        <!--<div >-->
-                            <!--<div class="options" > -->
-                                <div id="finger1" class="circle">1</div>
-                                <div id="finger2" class="circle">2</div>
-                                <div id="finger3" class="circle">3</div>
-                                <div id="finger4" class="circle">4</div>
-                            <!--</div>-->
-                        <!--</div>-->
-                        
-                        
-                    </div>
-                </div>
-            </div>  
-    </div>
 
     <div class="bg-image" style="background-image: url('{{data.ukulele}}'); height: 100vh; background-repeat: no-repeat">
         <div class="container">
-            <div class="row table-blank">
+            <!-- <div class="row table-blank">
     
+            </div> -->
+            <div class="row">
+                <div class="col-md-12"><h3>Quizzes {{data.id}}/6</h3></div> 
             </div>
+            <div class="row">
+                <div class="col-md-8"><h4>Place the correct fingering buttons for {{data.target}}</h4></div> 
+            
+            </div>
+        
+        
+            <div id="quiz_question"> 
+                    <div class="row"> 
+                        <div class="col-md-2"> <br></div>
+                        <div class="col-md-8">
+                            <div id="dots-group" class="row">
+                                <!--<div >-->
+                                    <!--<div class="options" > -->
+                                        <div id="finger1" class="circle">1</div>
+                                        <div id="finger2" class="circle">2</div>
+                                        <div id="finger3" class="circle">3</div>
+                                        <div id="finger4" class="circle">4</div>
+                                    <!--</div>-->
+                                <!--</div>-->
+                                
+                                
+                            </div>
+                        </div>
+                    </div>  
+            </div>
+
+            <div style="height: 91px;"></div>
+
             <!-- comment the first 2 rows of table-w-border to disappear the red border -->
             <div class="row row-w-margin">
-                <div class="table-w-border" style="width: 72px; height: 30px;" data-idx="1"></div>
-                <div class="table-w-border" style="width: 69px; height: 30px;" data-idx="2"></div>
-                <div class="table-w-border" style="width: 63px; height: 30px;" data-idx="3"></div>
-                <div class="table-w-border" style="width: 60px; height: 30px;" data-idx="4"></div>
+                <div class="table-w-border" style="width: 72px; height: 30px;" id="1"></div>
+                <div class="table-w-border" style="width: 69px; height: 30px;" id="2"></div>
+                <div class="table-w-border" style="width: 63px; height: 30px;" id="3"></div>
+                <div class="table-w-border" style="width: 60px; height: 30px;" id="4"></div>
             </div>
             <div class="row row-w-margin">
-                <div class="table-w-border" style="width: 72px; height: 30px;" data-idx="5"></div>
-                <div class="table-w-border" style="width: 69px; height: 30px;" data-idx="6"></div>
-                <div class="table-w-border" style="width: 63px; height: 30px;" data-idx="7"></div>
-                <div class="table-w-border" style="width: 60px; height: 30px;" data-idx="8"></div>
+                <div class="table-w-border" style="width: 72px; height: 30px;" id="5"></div>
+                <div class="table-w-border" style="width: 69px; height: 30px;" id="6"></div>
+                <div class="table-w-border" style="width: 63px; height: 30px;" id="7"></div>
+                <div class="table-w-border" style="width: 60px; height: 30px;" id="8"></div>
             </div>
             <div class="row row-w-margin">
-                <div class="table-w-border" style="width: 72px; height: 35px;" data-idx="9"></div>
-                <div class="table-w-border" style="width: 69px; height: 35px;" data-idx="10"></div>
-                <div class="table-w-border" style="width: 63px; height: 35px;" data-idx="11"></div>
-                <div class="table-w-border" style="width: 60px; height: 35px;" data-idx="12"></div>
+                <div class="table-w-border" style="width: 72px; height: 35px;" id="9"></div>
+                <div class="table-w-border" style="width: 69px; height: 35px;" id="10"></div>
+                <div class="table-w-border" style="width: 63px; height: 35px;" id="11"></div>
+                <div class="table-w-border" style="width: 60px; height: 35px;" id="12"></div>
             </div>
             <div class="row row-w-margin">
-                <div class="table-w-border" style="width: 72px; height: 40px;" data-idx="13"></div>
-                <div class="table-w-border" style="width: 69px; height: 40px;" data-idx="14"></div>
-                <div class="table-w-border" style="width: 63px; height: 40px;" data-idx="15"></div>
-                <div class="table-w-border" style="width: 60px; height: 40px;" data-idx="16"></div>
+                <div class="table-w-border" style="width: 72px; height: 40px;" id="13"></div>
+                <div class="table-w-border" style="width: 69px; height: 40px;" id="14"></div>
+                <div class="table-w-border" style="width: 63px; height: 40px;" id="15"></div>
+                <div class="table-w-border" style="width: 60px; height: 40px;" id="16"></div>
             </div>
         </div>
+
+        <div style="height: 100px;">
+            <!-- This block is for build whitespace -->
+        </div>
+        <div style="height: 50px;" id="quiz_feedback"> </div>
+
+        <div class="btn-align" style="padding-left: 45%;">
+            <button class="btn btn-primary" id="nxt" disabled="true">Next</button>
+            <button class="btn btn-primary" id="cfm" style="background-color: green;">Confirm</button>
+        </div>
+
     </div>    
 
 
     
-
 </div>
 
 {% endblock %}

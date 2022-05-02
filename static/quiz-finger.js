@@ -56,9 +56,7 @@ $(document).ready(function(){
         }
     })
 
-    $("#prev").click(function(){
-        window.location.href = '/quiz/' + data["previous"]
-    })            
+               
 
     //The buttons for the fingering are made draggable
 
@@ -131,8 +129,8 @@ $(document).ready(function(){
         drop: function(event, ui){
             console.log(ui.draggable.text())
             
-            console.log($(this).data("idx"))
-            user_result[ui.draggable.text()] = $(this).data("idx").toString();
+            console.log(this.id)
+            user_result[ui.draggable.text()] = this.id.toString();
             console.log(user_result);
             $(".table-w-border").removeClass("show-border")
         },
@@ -142,12 +140,29 @@ $(document).ready(function(){
         } 
     })
 
+
+    //where the dots can return to
+
     $("#dots-group").droppable({
         drop: function(event, ui){
             console.log(ui.draggable.text() + " is put back.")
             $(".table-w-border").removeClass("show-border")
         }
     })
+
+
+    $("#cfm").click(function(){
+        let user = $(this).html()
+
+        let response = {
+            "id": data.id,
+            "user": user_result
+        }
+        save_user_response(response)
+        
+        $(this).attr("disabled", "true")
+        $("#nxt").removeAttr("disabled")
+    }) 
 })
 
 function save_user_response(selection) {
@@ -160,6 +175,33 @@ function save_user_response(selection) {
         success: function(result){
             quiz_data = result["quiz_results"]
             console.log(quiz_data)
+
+            let url = window.location.href
+            let curNum = url.charAt(url.length - 1) - 1
+            let fb = $("#quiz_feedback")
+            let flag = true
+            let right = quiz_data[curNum]['correct']
+            let answer = quiz_data[curNum]['user']
+            for(let k in right){
+                if(right[k] !== answer[k]){
+                    flag = false
+                    break
+                }
+            }
+            if(flag){
+                fb.text("Correct. Good job!")
+                fb.addClass("correct")
+            } else {
+                let s = ""
+                for(let k in right){
+                    if(right[k] !== ""){
+                        s = s + "dot " + k + " should be put at the " + right[k] + "th grid,"
+                    }
+                    
+                }
+                fb.text("Oho, the correct answer is " + s)
+                fb.addClass("wrong")
+            }
         },
         error: function(request, status, error){
             console.log("Error");

@@ -18,8 +18,8 @@
 }
 
 .table-w-border{
-    border-style: none;
-    border-color: red;
+    border-style: none; /*Tmp modified none*/
+    border-color: pink;
     border-width: 1px;
     /* height: 27px; */
     color: white;
@@ -34,11 +34,23 @@
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    margin-left: 30%;
+    margin-left: 10px;
     background: yellow;
     border: 2px solid #000;
     color: #000;
     text-align: center;
     font: 16px Arial, sans-serif;
 
+}
+
+.correct{
+    color: green;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.wrong{
+    color: red;
+    font-weight: bold;
+    font-size: medium;
 }
