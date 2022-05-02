@@ -39,6 +39,7 @@ function displayPage(data){
         }
 
         save_user_response(response, this.id)
+        $("#nxt").removeAttr("disabled")
     })
 }
 
@@ -57,13 +58,15 @@ function save_user_response(selection, seleID) {
             let url = window.location.href
             let curNum = url.charAt(url.length - 1) - 1
 
-            console.log(seleID, quiz_data[curNum]['correct'])
+            // console.log(seleID, quiz_data[curNum]['correct'])
 
             let fb = $("#quiz_feedback")
             if(seleID === quiz_data[curNum]['correct']){
                 fb.text("Correct. Good job!")
+                fb.addClass("correct")
             } else {
                 fb.text("Oho, the correct answer is " + String.fromCharCode(quiz_data[curNum]['correct'] - '0' +65))
+                fb.addClass("wrong")
             }
 
             for(let i = 0; i < 3; i++){
