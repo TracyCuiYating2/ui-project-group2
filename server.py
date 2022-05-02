@@ -114,19 +114,19 @@ quiz_data = [
 quiz_results = [
     {
         "id": "1",
-        "correct": "0",
+        "correct": "A",
         "user": "",
         "learn_id":"3"
     },
     {
         "id": "2",
-        "correct": "2",
+        "correct": "C",
         "user": "",
         "learn_id":"1"
     },
         {
         "id": "3",
-        "correct": "1",
+        "correct": "B",
         "user": "",
         "learn_id":"2"
 

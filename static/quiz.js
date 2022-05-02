@@ -38,7 +38,7 @@ function displayPage(data){
             "user": user
         }
 
-        save_user_response(response, this.id)
+        save_user_response(response)
         $("#nxt").removeAttr("disabled")
     })
 }
@@ -61,11 +61,11 @@ function save_user_response(selection, seleID) {
             // console.log(seleID, quiz_data[curNum]['correct'])
 
             let fb = $("#quiz_feedback")
-            if(seleID === quiz_data[curNum]['correct']){
+            if(quiz_data[curNum]['user'] === quiz_data[curNum]['correct']){
                 fb.text("Correct. Good job!")
                 fb.addClass("correct")
             } else {
-                fb.text("Oho, the correct answer is " + String.fromCharCode(quiz_data[curNum]['correct'] - '0' +65))
+                fb.text("Oho, the correct answer is " + quiz_data[curNum]['correct'])
                 fb.addClass("wrong")
             }
 
