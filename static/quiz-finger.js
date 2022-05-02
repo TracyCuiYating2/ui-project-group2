@@ -46,6 +46,7 @@ $(document).ready(function(){
             "id": data.id,
             "user": user_result
         }
+        
         save_user_response(response);
         
         console.log(data["id"]);
