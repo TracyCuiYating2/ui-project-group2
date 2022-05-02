@@ -4,11 +4,10 @@ $(document).ready(function(){
 
     $("#prev").click(function(){
         window.location.href = '/learn/1';
-        }
     })
 
     $("#next").click(function(){
-        window.location.href = '/learn/check';
+        window.location.href = '/quiz/1';
     })
 
 

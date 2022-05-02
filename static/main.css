@@ -12,6 +12,25 @@
     align-self: flex-end;
     margin: 0 auto;
 }
+.h2{
+    font-family: 'Patua One', cursive;
+}
+
+nav{
+    background-color: 	#fff8dc; 
+}
+
+.mb-0{
+    color: #8b6914;
+}
+.btn-primary {
+    background-color: #CDAA7D; 
+    border: none;
+  }
+
+  .btn-primary:hover{
+    background-color: #8b6914;
+  }
 
 
 .table-blank{
