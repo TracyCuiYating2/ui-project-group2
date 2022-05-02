@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify, json
 from itsdangerous import json
+
 app = Flask(__name__)
 
 learnData = {
@@ -10,8 +11,6 @@ learnData = {
         "chord": "G",
         "chordIMG": "https://b7d3d5f9.rocketcdn.me/chords/standard/G.svg",
         "chordAudio": "/static/resources/G.mp3",
-        "description": "Here is the G chord, your fingers should pressing the yellow dots on the strings.",
-        "description2": "Here is the sound for the G chord!!!",
         "prev": "",
         "next": "2",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
@@ -26,8 +25,6 @@ learnData = {
         "chord": "F",
         "chordIMG": "https://b7d3d5f9.rocketcdn.me/chords/standard/F.svg",
         "chordAudio": "/static/resources/F.mp3",
-        "description": "Here is the F chord, your fingers should pressing the yellow dots on the strings.",
-        "description2": "Here is the sound for the F chord!!!",
         "prev": "1",
         "next": "3",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
@@ -41,8 +38,6 @@ learnData = {
         "chord": "C",
         "chordIMG": "https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg",
         "chordAudio": "/static/resources/G.mp3",
-        "description": "Here is the C chord, your fingers should pressing the yellow dots on the strings.",
-        "description2": "Here is the sound for the C chord!!!",
         "prev": "2",
         "next": "",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
@@ -120,17 +115,21 @@ quiz_results = [
     {
         "id": "1",
         "correct": "0",
-        "user": ""
+        "user": "",
+        "learn_id":"3"
     },
     {
         "id": "2",
         "correct": "2",
-        "user": ""
+        "user": "",
+        "learn_id":"1"
     },
         {
         "id": "3",
         "correct": "1",
-        "user": ""
+        "user": "",
+        "learn_id":"2"
+
     },
     {
         "id": "4",
@@ -140,7 +139,8 @@ quiz_results = [
             "3": "3",
             "4": ""
         },
-        "user":""
+        "user":"",
+        "learn_id":"3"
     },
     {
         "id": "5",
@@ -150,7 +150,8 @@ quiz_results = [
             "3": "7",
             "4": ""
         },
-        "user":""
+        "user":"",
+        "learn_id":"1"
     },
     {
         "id": "6",
@@ -160,7 +161,8 @@ quiz_results = [
             "3": "",
             "4": ""
          },
-        "user": ""
+        "user": "",
+        "learn_id":"2"
     }
 ]
 
@@ -203,7 +205,19 @@ def quiz(id=None):
 
 @app.route('/quiz/result')
 def quiz_feedback():
-    return render_template('quiz-result.html', data=quiz_results)
+
+    result,review_id,num = checkAnswer()
+
+    review_links = [[i,learnData[i]["chord"]] for i in review_id]
+    # result["correct_num"] = num
+    print(review_links)
+    data = {
+        "result":result,
+        "review":review_links,
+        "correctNum": num
+    }
+    print(data)
+    return render_template('quiz-result.html', data = data)
 
 # AJAX Functions
 @app.route('/quiz/save_user_response', methods=['POST'])
@@ -215,8 +229,25 @@ def save_user_response():
     response = json_data["user"]
     
     quiz_results[i]["user"] = response   # NEED TO FIX I DOESNT WORK
-    print(quiz_results)
+    
     return jsonify(quiz_results=quiz_results)
+
+def checkAnswer():
+    print(quiz_results)
+    result = {}
+    # review = set()
+    review_id = set()
+    correct_num = 0
+    for i in range(6):
+        if quiz_results[i]["correct"] == quiz_results[i]['user']:
+            result[i] = True
+            correct_num += 1
+        else:
+            result[i] = False
+            # review.add(quiz_data[i]['target'])
+            review_id.add(quiz_results[i]["learn_id"])
+    return result, review_id, correct_num
+
 
 if __name__ == '__main__':
    app.run(debug = True)
