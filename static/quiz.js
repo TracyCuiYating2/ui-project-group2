@@ -11,6 +11,7 @@ function displayPage(data){
         let item = $("<div>");
         let button = $("<button class='btn btn-primary option vertical' type='button'>");
         button.text(String.fromCharCode(i+65));
+        button.attr('id', i)
 
 
         let audio = $("<audio controls>");
@@ -37,11 +38,11 @@ function displayPage(data){
             "user": user
         }
 
-        save_user_response(response)
+        save_user_response(response, this.id)
     })
 }
 
-function save_user_response(selection) {
+function save_user_response(selection, seleID) {
     $.ajax({
         type: "POST",
         url: "save_user_response",                
@@ -52,6 +53,22 @@ function save_user_response(selection) {
             quiz_data = result["quiz_results"]
             
             console.log(quiz_data)
+            
+            let url = window.location.href
+            let curNum = url.charAt(url.length - 1) - 1
+
+            console.log(seleID, quiz_data[curNum]['correct'])
+
+            let fb = $("#quiz_feedback")
+            if(seleID === quiz_data[curNum]['correct']){
+                fb.text("Correct. Good job!")
+            } else {
+                fb.text("Oho, the correct answer is " + String.fromCharCode(quiz_data[curNum]['correct'] - '0' +65))
+            }
+
+            for(let i = 0; i < 3; i++){
+                $("#" + String(i)).attr('disabled', true)
+            }
         },
         error: function(request, status, error){
             console.log("Error");
@@ -69,11 +86,13 @@ $(document).ready(function(){
         window.location.href = '/quiz/' + data["next"]
     })
     $("#prev").click(function(){
-        if (data["id"] === "1"){
-            window.location.href = '/learn/3';
-        }else{
-            window.location.href = '/quiz/' + data["previous"]
-        }
+        console.log("Should get feedbacks from server.")
+        // if (data["id"] === "1"){
+        //     window.location.href = '/learn/3';
+        // }else{
+        //     window.location.href = '/quiz/' + data["previous"]
+        // }
+
     })   
 
 })

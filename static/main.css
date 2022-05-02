@@ -23,8 +23,8 @@
 }
 
 .table-w-border{
-    border-style: none;
-    border-color: red;
+    border-style: none; /*Tmp modified none*/
+    border-color: pink;
     border-width: 1px;
     /* height: 27px; */
     color: white;
