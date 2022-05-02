@@ -46,7 +46,6 @@ $(document).ready(function(){
             "id": data.id,
             "user": user_result
         }
-        
         save_user_response(response);
         
         console.log(data["id"]);
@@ -131,8 +130,9 @@ $(document).ready(function(){
       $(".table-w-border").droppable({
         drop: function(event, ui){
             console.log(ui.draggable.text())
+            
             console.log($(this).data("idx"))
-            user_result[ui.draggable.text()] = $(this).data("idx");
+            user_result[ui.draggable.text()] = $(this).data("idx").toString();
             console.log(user_result);
             $(".table-w-border").removeClass("show-border")
         },

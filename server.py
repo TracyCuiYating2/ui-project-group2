@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify, json
 from itsdangerous import json
+
 app = Flask(__name__)
 
 learnData = {
@@ -203,7 +204,18 @@ def quiz(id=None):
 
 @app.route('/quiz/result')
 def quiz_feedback():
-    return render_template('quiz-result.html', data=quiz_results)
+
+    result,review,num = checkAnswer()
+    print(result)
+    print(review)
+    # result["correct_num"] = num
+    data = {
+        "result":result,
+        "review":list(review),
+        "correctNum": num
+    }
+    print(data)
+    return render_template('quiz-result.html', data = data)
 
 # AJAX Functions
 @app.route('/quiz/save_user_response', methods=['POST'])
@@ -215,8 +227,23 @@ def save_user_response():
     response = json_data["user"]
     
     quiz_results[i]["user"] = response   # NEED TO FIX I DOESNT WORK
-    print(quiz_results)
+    
     return jsonify(quiz_results=quiz_results)
+
+def checkAnswer():
+    print(quiz_results)
+    result = {}
+    review = set()
+    correct_num = 0
+    for i in range(6):
+        if quiz_results[i]["correct"] == quiz_results[i]['user']:
+            result[i] = True
+            correct_num += 1
+        else:
+            result[i] = False
+            review.add(quiz_data[i]['target'])
+    return result,review, correct_num
+
 
 if __name__ == '__main__':
    app.run(debug = True)

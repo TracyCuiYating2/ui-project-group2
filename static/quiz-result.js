@@ -1,19 +1,19 @@
 $(document).ready(function(){
-    let correct_list = []
-    let correct_number = 0
+    // let correct_list = []
+    // let correct_number = 0
     
-    $.each(data, function (i, datum) {
-        console.log(data[i].user);
-        console.log(data[i].correct);
+    // $.each(data, function (i, datum) {
+    //     console.log(data[i].user);
+    //     console.log(data[i].correct);
 
-        if(data[i].user === data[i].correct){
-            correct_list.push(data[i].id);
-            correct_number += 1;
-            $("#correct_message").text("You got " + correct_number + "/6 questions right!");
-            console.log(correct_list);
-        } 
-    });
-    console.log("total "+correct_number);
+    //     if(data[i].user === data[i].correct){
+    //         correct_list.push(data[i].id);
+    //         correct_number += 1;
+    //         $("#correct_message").text("You got " + correct_number + "/6 questions right!");
+    //         console.log(correct_list);
+    //     } 
+    // });
+    // console.log("total "+correct_number);
 
 
     if (data[0].user != data[0].correct) {
