@@ -4,6 +4,11 @@ function displayPage(data){
     $(pic).attr("alt", "quiz"+ data["id"] + " image");
     $("#quiz-image").append(pic);
 
+    // Clear previous fingerings first
+    for (let i = 1; i < 17; i++){
+        $("#" + String(i)).empty()
+    }
+
     $.each(data["audio"], function (i, datum) {
         // console.log("hello");
         // // <button onclick="playSound()">Play</button>
@@ -40,21 +45,6 @@ $(document).ready(function(){
         "3": "",
         "4": ""
     }
-
-    $("#nxt").click(function(){
-        let response = {
-            "id": data.id,
-            "user": user_result
-        }
-        save_user_response(response);
-        
-        console.log(data["id"]);
-        if (data["id"] === "6"){
-            window.location.href = '/quiz/result'; //quiz result
-        }else{
-            window.location.href = '/quiz/' + data["next"] 
-        }
-    })
 
                
 
@@ -160,8 +150,23 @@ $(document).ready(function(){
         }
         save_user_response(response)
         
-        $(this).attr("disabled", "true")
-        $("#nxt").removeAttr("disabled")
+        $(this).removeClass("cmf_btn")
+        $(this).text("Next")
+        $(this).unbind("click")
+        $(this).click(function(){
+            let response = {
+                "id": data.id,
+                "user": user_result
+            }
+            save_user_response(response);
+            
+            console.log(data["id"]);
+            if (data["id"] === "6"){
+                window.location.href = '/quiz/result'; //quiz result
+            }else{
+                window.location.href = '/quiz/' + data["next"] 
+            }
+        })
     }) 
 })
 
@@ -192,14 +197,24 @@ function save_user_response(selection) {
                 fb.text("Correct. Good job!")
                 fb.addClass("correct")
             } else {
-                let s = ""
-                for(let k in right){
-                    if(right[k] !== ""){
-                        s = s + "dot " + k + " should be put at the " + right[k] + "th grid,"
+                // let s = ""
+                // for(let k in right){
+                //     if(right[k] !== ""){
+                //         s = s + "dot " + k + " should be put at the " + right[k] + "th grid,"
+                //     }
+                    
+                // }
+                
+                for(let fingering in right){
+                    console.log(fingering, right[fingering])
+                    if(right[fingering] !== ''){
+                        let newFing = $("<div>"+fingering+"</div>")
+                        newFing.addClass("pink")
+                        $("#" + right[fingering]).append(newFing)
                     }
                     
                 }
-                fb.text("Oho, the correct answer is " + s)
+                fb.text("Oho, the correct answer is shown with pink dots.")
                 fb.addClass("wrong")
             }
         },

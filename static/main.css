@@ -67,6 +67,19 @@ nav{
 
 }
 
+.pink{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    background: pink;
+    border: 2px solid #000;
+    color: #000;
+    text-align: center;
+    font: 16px Arial, sans-serif;
+
+}
+
 .correct{
     color: green;
     font-weight: bold;
@@ -80,4 +93,8 @@ nav{
 }
 .vertical{
     vertical-align: middle;
+}
+
+.cmf_btn{
+    background-color: green;
 }
