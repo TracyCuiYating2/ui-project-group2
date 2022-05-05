@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $("#page-title").text("Fingering Learning")
     $("#nav-learn").addClass("active")
@@ -31,7 +32,7 @@ $(document).ready(function(){
         $("#" + cells[fingering]).append(newFing)
     }
     
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 5; i++) {
        if (parseInt(data.id) == i) {
             $("#learn" + i).css("background-color", "#e0e0e0");
         }

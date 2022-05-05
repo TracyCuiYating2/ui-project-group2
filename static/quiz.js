@@ -51,7 +51,7 @@ function save_user_response(selection, seleID) {
         contentType: "application/json; charset=utf-8",
         data : JSON.stringify(selection),
         success: function(result){
-            quiz_data = result["quiz_results"]
+            quiz_data = result["quiz_data"]
             
             console.log(quiz_data)
             
