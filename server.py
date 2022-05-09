@@ -203,7 +203,6 @@ quiz_data = [
         "id": "10", 
         "type": "1", 
         "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/A.svg"], 
-        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
         "target": "A",
         "next":"",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
@@ -218,60 +217,6 @@ quiz_data = [
     }
 ]
 
-# quiz_results = [
-#     {
-#         "id": "1",
-#         "correct": "A",
-#         "user": "",
-#         "learn_id":"3"
-#     },
-#     {
-#         "id": "2",
-#         "correct": "C",
-#         "user": "",
-#         "learn_id":"1"
-#     },
-#         {
-#         "id": "3",
-#         "correct": "B",
-#         "user": "",
-#         "learn_id":"2"
-
-#     },
-#     {
-#         "id": "4",
-#         "correct": {
-#             "1": "",
-#             "2": "",
-#             "3": "3",
-#             "4": ""
-#         },
-#         "user":"",
-#         "learn_id":"3"
-#     },
-#     {
-#         "id": "5",
-#         "correct": {
-#             "1": "10",
-#             "2": "2",
-#             "3": "7",
-#             "4": ""
-#         },
-#         "user":"",
-#         "learn_id":"1"
-#     },
-#     {
-#         "id": "6",
-#         "correct": {
-#             "1": "5",
-#             "2": "10",
-#             "3": "",
-#             "4": ""
-#          },
-#         "user": "",
-#         "learn_id":"2"
-#     }
-# ]
 
 # ROUTES
 @app.route('/')
