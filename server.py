@@ -37,14 +37,40 @@ learnData = {
         "id": 3,
         "chord": "C",
         "chordIMG": "https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg",
-        "chordAudio": "/static/resources/G.mp3",
+        "chordAudio": "/static/resources/C.mp3",
         "prev": "2",
-        "next": "",
+        "next": "4",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
         "fingerings": {
             "3": "3"
         }
-   }
+   },
+       "4": {
+        "id": 4,
+        "chord": "A",
+        "chordIMG": "https://b7d3d5f9.rocketcdn.me/chords/standard/A.svg",
+        "chordAudio": "/static/resources/A.mp3",
+        "prev": "3",
+        "next": "5",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "fingerings": {
+            "1": "9",
+            "2": "14"
+        }
+   },
+        "5": {
+        "id": 5,
+        "chord": "Am",
+        "chordIMG": "https://b7d3d5f9.rocketcdn.me/chords/standard/Am.svg",
+        "chordAudio": "/static/resources/Am.mp3",
+        "prev": "4",
+        "next": "",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "fingerings": {
+            "2": "14"
+        }
+   },
+
 }
 
 quiz_data = [ 
@@ -52,11 +78,13 @@ quiz_data = [
         "id": "1", 
         "type": "0", 
         "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg"], 
-        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
+        "audio": ["/static/resources/A.mp3","/static/resources/C.mp3","/static/resources/G.mp3"],
         "target": "C",
         "next":"2",
-        "previous":"",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "correct": "B",
+        "user": "",
+        "learn_id":"3"
     },
     {
         "id": "2", 
@@ -65,74 +93,54 @@ quiz_data = [
         "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
         "target": "G",
         "next":"3",
-        "previous":"1",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "correct": "C",
+        "user": "",
+        "learn_id":"1"
     },
     {
         "id": "3", 
         "type": "0", 
         "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/F.svg"], 
-        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
+        "audio": ["/static/resources/F.mp3","/static/resources/A.mp3","/static/resources/G.mp3"],
         "target": "F",
         "next":"4",
-        "previous":"2",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
-    },
-        {
-        "id": "4", 
-        "type": "1", 
-        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg"], 
-        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
-        "target": "C",
-        "next":"5",
-        "previous":"",
         "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
-
-    },
-        {
-        "id": "5", 
-        "type": "1", 
-        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/G.svg"], 
-        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
-        "target": "G",
-        "next":"6",
-        "previous":"1",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
-    },
-        {
-        "id": "6", 
-        "type": "1", 
-        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/F.svg"], 
-        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
-        "target": "F",
-        "next":"",
-        "previous":"2",
-        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png"
-    }
-]
-
-quiz_results = [
-    {
-        "id": "1",
         "correct": "A",
         "user": "",
-        "learn_id":"3"
+        "learn_id":"2"
     },
     {
-        "id": "2",
-        "correct": "C",
+        "id": "4", 
+        "type": "0", 
+        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/A.svg"], 
+        "audio": ["/static/resources/A.mp3","/static/resources/C.mp3","/static/resources/G.mp3"],
+        "target": "A",
+        "next":"5",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "correct": "A",
         "user": "",
-        "learn_id":"1"
+        "learn_id":"4"
     },
-        {
-        "id": "3",
+    {
+        "id": "5", 
+        "type": "0", 
+        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/Am.svg"], 
+        "audio": ["/static/resources/C.mp3","/static/resources/Am.mp3","/static/resources/F.mp3"],
+        "target": "Am",
+        "next":"6",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
         "correct": "B",
         "user": "",
-        "learn_id":"2"
-
+        "learn_id":"5"
     },
     {
-        "id": "4",
+        "id": "6", 
+        "type": "1", 
+        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/C.svg"], 
+        "target": "C",
+        "next":"7",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
         "correct": {
             "1": "",
             "2": "",
@@ -142,8 +150,13 @@ quiz_results = [
         "user":"",
         "learn_id":"3"
     },
-    {
-        "id": "5",
+        {
+        "id": "7", 
+        "type": "1", 
+        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/G.svg"], 
+        "target": "G",
+        "next":"8",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
         "correct": {
             "1": "10",
             "2": "2",
@@ -153,8 +166,14 @@ quiz_results = [
         "user":"",
         "learn_id":"1"
     },
-    {
-        "id": "6",
+        {
+        "id": "8", 
+        "type": "1", 
+        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/F.svg"], 
+        "audio": ["/static/resources/C.mp3","/static/resources/F.mp3","/static/resources/G.mp3"],
+        "target": "F",
+        "next":"9",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
         "correct": {
             "1": "5",
             "2": "14",
@@ -163,8 +182,41 @@ quiz_results = [
          },
         "user": "",
         "learn_id":"2"
+    },
+            {
+        "id": "9", 
+        "type": "1", 
+        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/Am.svg"], 
+        "target": "Am",
+        "next":"10",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "correct": {
+            "1": "",
+            "2": "14",
+            "3": "",
+            "4": ""
+         },
+        "user": "",
+        "learn_id":"5"
+    },
+            {
+        "id": "10", 
+        "type": "1", 
+        "image":["https://b7d3d5f9.rocketcdn.me/chords/standard/A.svg"], 
+        "target": "A",
+        "next":"",
+        "ukulele": "https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukutabs-ukulele-full-vertical.png",
+        "correct": {
+            "1": "9",
+            "2": "14",
+            "3": "",
+            "4": ""
+         },
+        "user": "",
+        "learn_id":"4"
     }
 ]
+
 
 # ROUTES
 @app.route('/')
@@ -190,13 +242,6 @@ def learn_fingering(id=None):
 
     return render_template('learn-fingering.html', data=data)
 
-@app.route('/learn/<id>/sound')
-def learn_sound(id=None):
-    global learnData
-    data = learnData[id]
-
-    return render_template('learn-sound.html', data=data)
-
 @app.route('/quiz/<id>')
 def quiz(id=None):
     id = int(id)
@@ -204,7 +249,6 @@ def quiz(id=None):
     if selected_data["type"] == '0':
         return render_template('quiz.html', data=selected_data)
     elif selected_data["type"] == '1':
-        print("here")
         return render_template('quiz_fingering.html', data = selected_data)
 
 @app.route('/quiz/result')
@@ -226,30 +270,29 @@ def quiz_feedback():
 # AJAX Functions
 @app.route('/quiz/save_user_response', methods=['POST'])
 def save_user_response():
-    global quiz_results
+    global quiz_data
 
     json_data = request.get_json()
     i = (int(json_data["id"])) - 1 
     response = json_data["user"]
     
-    quiz_results[i]["user"] = response   # NEED TO FIX I DOESNT WORK
+    quiz_data[i]["user"] = response   # NEED TO FIX I DOESNT WORK
     
-    return jsonify(quiz_results=quiz_results)
+    return jsonify(quiz_data=quiz_data)
 
 def checkAnswer():
-    print(quiz_results)
     result = {}
     # review = set()
     review_id = set()
     correct_num = 0
-    for i in range(6):
-        if quiz_results[i]["correct"] == quiz_results[i]['user']:
+    for i in range(10):
+        if quiz_data[i]["correct"] == quiz_data[i]['user']:
             result[i] = True
             correct_num += 1
         else:
             result[i] = False
             # review.add(quiz_data[i]['target'])
-            review_id.add(quiz_results[i]["learn_id"])
+            review_id.add(quiz_data[i]["learn_id"])
     return result, review_id, correct_num
 
 

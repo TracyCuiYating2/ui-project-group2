@@ -46,6 +46,21 @@ $(document).ready(function(){
         "4": ""
     }
 
+    $("#nxt").click(function(){
+        let response = {
+            "id": data.id,
+            "user": user_result
+        }
+        save_user_response(response);
+        
+        console.log(data["id"]);
+        if (data["id"] === "10"){
+            window.location.href = '/quiz/result'; //quiz result
+        }else{
+            window.location.href = '/quiz/' + data["next"] 
+        }
+    })
+
                
 
     //The buttons for the fingering are made draggable
@@ -161,7 +176,7 @@ $(document).ready(function(){
             save_user_response(response);
             
             console.log(data["id"]);
-            if (data["id"] === "6"){
+            if (data["id"] === "10"){
                 window.location.href = '/quiz/result'; //quiz result
             }else{
                 window.location.href = '/quiz/' + data["next"] 
@@ -178,7 +193,7 @@ function save_user_response(selection) {
         contentType: "application/json; charset=utf-8",
         data : JSON.stringify(selection),
         success: function(result){
-            quiz_data = result["quiz_results"]
+            quiz_data = result["quiz_data"]
             console.log(quiz_data)
 
             let url = window.location.href
