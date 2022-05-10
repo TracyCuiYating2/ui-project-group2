@@ -1,5 +1,5 @@
 function displayPage(data){
-    let pic = $("<img class='quiz-image'>");
+    let pic = $("<img id='quiz-image'>");
     $(pic).attr("src", data["image"][0]);
     $(pic).attr("alt", "quiz"+ data["id"] + " image");
     $("#quiz-image").append(pic);
@@ -8,13 +8,13 @@ function displayPage(data){
         // console.log("hello");
         // // <button onclick="playSound()">Play</button>
         // let audio = new Audio(datum);
-        let item = $("<div>");
+        let item = $("<div id='audio-option'>");
         let button = $("<button class='btn btn-primary option vertical' type='button'>");
         button.text(String.fromCharCode(i+65));
         button.attr('id', i)
 
 
-        let audio = $("<audio controls>");
+        let audio = $("<audio id='quiz-audio' controls>");
         // let playSound = () => new Audio(datum).play();
         let source = $("<source type='audio/mpeg' preload='auto'> ")
         $(source).attr("src", datum); 
