@@ -92,7 +92,8 @@ nav{
     font-size: medium;
 }
 .vertical{
-    vertical-align: middle;
+    margin-bottom: 50px;
+    margin-right: 20px;
 }
 
 .cmf_btn{
