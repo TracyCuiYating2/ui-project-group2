@@ -54,6 +54,14 @@ nav{
     border-style: solid;
 }
 
+.ui-draggable{
+    cursor: grab;
+}
+
+button:disabled{
+    cursor: not-allowed;
+}
+
 .circle{
     border-radius: 50%;
     width: 30px;
