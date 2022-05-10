@@ -1,3 +1,7 @@
+* {
+    font-family: 'Patua One', cursive;
+}
+
 .page-title{
     text-align: center;
     font-size: x-large;
@@ -28,7 +32,7 @@ nav{
     border: none;
   }
 
-  .btn-primary:hover{
+  .btn-primary:hover {
     background-color: #8b6914;
   }
 
@@ -106,4 +110,46 @@ button:disabled{
 
 .cmf_btn{
     background-color: green;
+}
+
+.learn-basic-text {
+    font-size: 18px;
+}
+
+.learn-text {
+    margin-bottom: 10px;
+}
+
+b {
+    font-size: 20px;
+}
+
+#prev, #next {
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-duration: .5s;
+}
+
+#prev:active, #nxt:active, #next:active, #prev:focus, #nxt:focus, #next:focus {
+    background-color: #8b6914;
+    box-shadow:#CDAA7D;
+
+    box-shadow: 0px 0px 3px 3px #CDAA7D;
+}
+
+#quiz-image{
+   width: 60%;
+   height: auto; 
+}
+
+#quiz-content{
+    margin-top:40px;
+}
+
+#quiz-audio{
+    margin-bottom:-22px;
+    margin-left: 10px;
+}
+
+#audio-option{
+    margin-bottom: 50px;
 }

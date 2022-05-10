@@ -46,12 +46,12 @@
             <div class="row">
                 <div class="col-md-4">
                     <div><b>Fingering</b></div>
-                    <div> Remember where to put your fingers!</div>
+                    <div class="learn-text"> Remember where to put your fingers!</div>
                     <img src="{{data.chordIMG}}" alt="chord picture" width="50%">
                 </div>
                 <div class="col-md-4">
                     <div><b>Audio</b></div>
-                    <div>Listen to {{data.chord}} chord, and remember the sound!</div>
+                    <div class="learn-text">Listen to {{data.chord}} chord, and remember the sound!</div>
                     <audio controls>
                         <source src="{{data.chordAudio}}" type="audio/mpeg" preload="auto">
                         <embed height="50" width="100" src="{{data.chordAudio}}">
@@ -60,7 +60,11 @@
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-3">
-                    <div>Hint: </div>
+                    <div class="learn-text">
+                        <b>
+                            Hint:
+                        </b>
+                    </div>
                     <img src="https://b7d3d5f9.rocketcdn.me/wp-content/themes/olympus/utimages/ukuchords/ukuchords_howtoreadchordcharts.png" alt="chord_diagram" width="70%">
                 </div>
              </div>
